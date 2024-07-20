@@ -13,7 +13,7 @@ function AddCustomer() {
     const [newStatus, setNewStatus] = useState('')
 
     useEffect(() => {
-        axios.get('http://localhost:3001/getCustomers')
+        axios.get('https://stocktaker-client.vercel.app/getCustomers')
             .then(res => { console.log(res.data); })
             .catch(err => { console.log(err); })
     })
@@ -30,7 +30,7 @@ function AddCustomer() {
             status: newStatus
         }
 
-        axios.post('http://localhost:3001/addCustomer', addedData)
+        axios.post('https://stocktaker-client.vercel.app/addCustomer', addedData)
             .then(res => {
                 console.log(res.data);
                 window.location.reload();

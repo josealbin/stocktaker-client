@@ -23,13 +23,13 @@ function Customers() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3001/getCustomers')
+    axios.get('https://stocktaker-client.vercel.app/getCustomers')
       .then(res => { setData(res.data); })
       .catch(err => { console.log(err); })
   }, [])
 
   const handleEdit = (id) => {
-    axios.get('http://localhost:3001/getCustomer/' + id)
+    axios.get('https://stocktaker-client.vercel.app/getCustomer/' + id)
       .then(res => {
         setCustname(res.data.name)
         setRegion(res.data.region)
@@ -52,7 +52,7 @@ function Customers() {
       phone: phone,
       status: status
     }
-    axios.put('http://localhost:3001/updateCustomer/' + editId, updatedData)
+    axios.put('https://stocktaker-client.vercel.app/updateCustomer/' + editId, updatedData)
       .then(res => {
         window.location.reload();
         setEditId(null)
@@ -62,7 +62,7 @@ function Customers() {
 
   const handleDelete = (id) => {
     if (window.confirm("Deleted data cannot be retrieved! Are you sure you want to delete this customer?")) {
-      axios.delete('http://localhost:3001/deleteCustomer/' + id)
+      axios.delete('https://stocktaker-client.vercel.app/deleteCustomer/' + id)
         .then(res => {
           console.log(res);
           window.location.reload();

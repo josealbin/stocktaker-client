@@ -14,12 +14,12 @@ function Dashboard() {
 
     useEffect(() => {
         const fetchProducts = () => {
-            axios.get('http://localhost:3001/getProducts')
+            axios.get('https://stocktaker-client.vercel.app/getProducts')
                 .then(res => { setProdData(res.data); })
                 .catch(err => { console.log(err); })
         }
         const fetchCustomers = () => {
-            axios.get('http://localhost:3001/getCustomers')
+            axios.get('https://stocktaker-client.vercel.app/getCustomers')
                 .then(res => { setCustData(res.data) })
                 .catch(err => { console.log(err); })
         }

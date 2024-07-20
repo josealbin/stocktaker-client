@@ -24,7 +24,7 @@ function Inventory() {
     const searchRef = useRef(null)
 
     useEffect(() => {
-        axios.get('http://localhost:3001/getProducts')
+        axios.get('https://stocktaker-client.vercel.app/getProducts')
             .then(res => { setData(res.data); })
             .catch(err => { console.log(err); })
     }, [])
@@ -50,7 +50,7 @@ function Inventory() {
 
 
     const handleEdit = (id) => {
-        axios.get('http://localhost:3001/getProduct/' + id)
+        axios.get('https://stocktaker-client.vercel.app/getProduct/' + id)
             .then(res => {
                 setProdname(res.data.name)
                 setCategory(res.data.category)
@@ -71,7 +71,7 @@ function Inventory() {
             order: order,
             difference: difference
         }
-        axios.put('http://localhost:3001/updateProduct/' + editId, updatedData)
+        axios.put('https://stocktaker-client.vercel.app/updateProduct/' + editId, updatedData)
             .then(res => {
                 console.log(res);
                 window.location.reload();
@@ -88,7 +88,7 @@ function Inventory() {
 
     const handleDelete = (id) => {
         if (window.confirm("Deleted data cannot be reverted! Are you sure you want to delete this product?")) {
-            axios.delete('http://localhost:3001/deleteProduct/' + id)
+            axios.delete('https://stocktaker-client.vercel.app/deleteProduct/' + id)
                 .then(res => {
                     console.log(res);
                     window.location.reload();
@@ -173,7 +173,7 @@ function Inventory() {
 
             // Now, send an HTTP request to update data in the database
             setTimeout(() => {
-                axios.post('http://localhost:3001/updateData', { updatedTableData })
+                axios.post('https://stocktaker-client.vercel.app/updateData', { updatedTableData })
                     .then(res => {
                         setData(res.data);
                         setFileData(null);
