@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh;}
+.filter{ position: relative; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; opacity: .7; }
+
+
+.dash-container{ position: absolute; width: 100%; top: 10rem; min-height: calc(100vh - 12rem); }
+.cards{ width: 100%; padding: 50px 20px; display: grid; grid-template-columns:repeat(4, 1fr); gap: 20px; }
+.cards .card{ padding: 20px; display: flex; align-items: center; justify-content: space-between; background-color: #fafafa; border-radius: 10px; box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08); border-left: 5px solid #b95754;}
+.cards .card .number{ font-size: 35px; font-weight: 600; color: #29ab87;}
+.cards .card .card-name{ color: #344a72; font-weight: 600;}
+.icon-box .icon{ font-size: 45px; color: #344a72;} 
+
+.charts{ display: grid; grid-template-columns: 2fr 1fr; gap: 20px; width: 100%; padding: 20px; padding-top: 0;}
+.chart{ background-color: #fafafa; padding: 30px; border-radius: 10px; box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08); width: 100%;}
