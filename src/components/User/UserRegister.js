@@ -12,7 +12,7 @@ function UserRegister() {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        axios.post('https://stocktaker-client.vercel.app/signup', {username, email, password})
+        axios.post('https://stocktaker-client.vercel.app/register', {username, email, password})
         .then(res=>{ if(res.data.status){navigate('/')} })
         .catch(err=>{ console.log(err);})
     }
