@@ -12,7 +12,7 @@ function UserRegister() {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        axios.post('http://localhost:3001/signup', {username, email, password})
+        axios.post('https://stocktaker-server.onrender.com/signup', {username, email, password})
         .then(res=>{ if(res.data.status){navigate('/')} })
         .catch(err=>{ console.log(err);})
     }
