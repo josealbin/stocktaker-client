@@ -27,10 +27,17 @@ function Inventory() {
     const fileInputRef = useRef(null);
 
     useEffect(() => {
+        setSpinner(true); // Start spinner
         axios.get('https://stocktaker-server.onrender.com/getProducts')
-            .then(res => { setData(res.data); })
-            .catch(err => { console.log(err); })
-    }, [])
+            .then(res => {
+                setData(res.data);
+                setSpinner(false); // Stop spinner
+            })
+            .catch(err => {
+                console.log(err);
+                setSpinner(false);
+            });
+    }, []);
 
 
     const calculateStock = () => {
@@ -101,7 +108,8 @@ function Inventory() {
             axios.delete('https://stocktaker-server.onrender.com/deleteProduct/' + id)
                 .then(res => {
                     console.log(res);
-                    window.location.reload();
+                    //window.location.reload();
+                    setData(prevData => prevData.filter(item => item._id !== id));
                     //alert('Product deleted successfully');
                 })
                 .catch(err => { console.log(err); })
