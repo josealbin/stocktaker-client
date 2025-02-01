@@ -14,8 +14,8 @@ function Navbar({ user, setUser }) {
         <div className='header'>
             <div className="container">
                 <div className='logo_block'>
-                    <Link to="/dashboard"><img src="/images/form.png" alt="" /></Link>
-                    <Link to="/dashboard" className="logo-header">StockTaker.</Link>
+                    <Link to="/inventory"><img src="/images/form.png" alt="" /></Link>
+                    <Link to="/inventory" className="logo-header">StockTaker.</Link>
                 </div>
                 <nav className='user_block'>
                     <p><FontAwesomeIcon icon={faUserCircle} className='icon' />{user}</p>  
