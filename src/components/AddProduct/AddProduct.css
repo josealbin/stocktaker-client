@@ -33,7 +33,7 @@ body{ display: flex;}
 .remove-btn-add:hover{ color: #eaeaea;}
 
 /* Media queries for responsiveness */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .add-container form{ display: none;}
   }
   
