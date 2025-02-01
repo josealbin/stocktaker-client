@@ -15,7 +15,7 @@ function AddProduct() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3001/getProducts')
+    axios.get('https://stocktaker-server.vercel.app/getProducts')
       .then(res => { console.log(res); })
       .catch(err => { console.log(err); })
   }, [])
@@ -35,7 +35,7 @@ function AddProduct() {
     }
     formData.append('productData', JSON.stringify(addedData));
 
-    axios.post('http://localhost:3001/addProduct', addedData, formData)
+    axios.post('https://stocktaker-server.vercel.app/addProduct', addedData, formData)
       .then(res => {
         console.log(res.data);
         window.location.reload();

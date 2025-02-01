@@ -16,7 +16,7 @@ function UserLogin({ setUser }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/login', { email, password })
+        axios.post('https://stocktaker-server.vercel.app/login', { email, password })
             .then(res => {
                 if (res.data.status) {
                     setUser(res.data.username);
