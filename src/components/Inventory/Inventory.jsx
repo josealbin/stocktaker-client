@@ -27,7 +27,7 @@ function Inventory() {
     const fileInputRef = useRef(null);
 
     useEffect(() => {
-        axios.get('https://stocktaker-server.vercel.app/api/getProducts')
+        axios.get('https://stocktaker-server.vercel.app/getProducts')
             .then(res => { setData(res.data); })
             .catch(err => { console.log(err); })
     }, [])
@@ -53,7 +53,7 @@ function Inventory() {
 
 
     const handleEdit = (id) => {
-        axios.get('https://stocktaker-server.vercel.app/api/getProduct/' + id)
+        axios.get('https://stocktaker-server.vercel.app/getProduct/' + id)
             .then(res => {
                 setProdname(res.data.name)
                 setCategory(res.data.category)
@@ -74,7 +74,7 @@ function Inventory() {
             order: order,
             difference: difference
         }
-        axios.put('https://stocktaker-server.vercel.app/api/updateProduct/' + editId, updatedData)
+        axios.put('https://stocktaker-server.vercel.app/updateProduct/' + editId, updatedData)
             .then(res => {
                 console.log(res.data);
                 // Update the product data in the state without reloading
@@ -98,7 +98,7 @@ function Inventory() {
 
     const handleDelete = (id) => {
         if (window.confirm("Deleted data cannot be reverted! Are you sure you want to delete this product?")) {
-            axios.delete('https://stocktaker-server.vercel.app/api/deleteProduct/' + id)
+            axios.delete('https://stocktaker-server.vercel.app/deleteProduct/' + id)
                 .then(res => {
                     console.log(res);
                     window.location.reload();
@@ -198,7 +198,7 @@ function Inventory() {
 
             // Now, send an HTTP request to update data in the database
             setTimeout(() => {
-                axios.post('https://stocktaker-server.vercel.app/api/updateData', { updatedTableData })
+                axios.post('https://stocktaker-server.vercel.app/updateData', { updatedTableData })
                     .then(res => {
                         console.log(res.data);
                         setData(updatedTableData);
