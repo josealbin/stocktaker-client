@@ -10,7 +10,7 @@ body{ display: flex;}
 
 .filter{ position: relative; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; opacity: .7;}
 
-.add-container{ position: absolute; top: 14.5rem; max-width: 1440px; width: 100%;}
+.add-container{ position: absolute; top: 14.5rem; width: 100%;}
 .add-container form{ position: relative; min-height: 50px;}
 .add-container .form-field{ display: flex; align-items: center; justify-content: space-between; height: 5rem;}
 .add-container .control-field{ display: flex;}
