@@ -40,7 +40,7 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
 .spinner{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 999; }
 
 /* prod_table Starts*/
-.wrapper{ position: absolute; top: 19rem; max-width: 1440px; width: 100%; background: #fafafa; box-shadow: 0 5px 12px rgba(32, 32, 32, .3); height: 500px; overflow: hidden; overflow-y: auto;}
+.wrapper{ position: absolute; top: 19rem; width: 100%; background: #fafafa; box-shadow: 0 5px 12px rgba(32, 32, 32, .3); height: 450px; overflow: hidden; overflow-y: auto;}
 .prod_table{ width: 100%; border-collapse: separate; border-spacing: 0; overflow: auto; white-space: nowrap; }
 .prod_table thead { background: #344a72; color: #fafafa; text-align: left; position: sticky; top: 0; }
 .prod_table thead tr th{ font-size: 0.9rem; padding: 0.5rem; vertical-align: top; border-right: 1px solid #eaeaea;  font-weight: 600; user-select: none;}
