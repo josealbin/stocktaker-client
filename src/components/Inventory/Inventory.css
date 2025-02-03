@@ -25,7 +25,7 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
 /* Upload File Starts*/
 .upload_file{ position: absolute; top: 10rem; left: 1rem;}
 .upload_file p{ color: #b95754; font-size: 12px; padding: 5px; user-select: none;}
-.upload_box{ font-size: 14px; color: #888888; background: #fafafa; border-radius: 20px;  width: 200px; outline: none; cursor: pointer;}
+.upload_box{ font-size: 14px; color: #888888; background: #fafafa; border-radius: 20px; outline: none; cursor: pointer;}
 ::-webkit-file-upload-button{ color: #29ab87; background: #fafafa; padding: 5px; border: 1px solid #29ab87; border-radius: 20px; outline: none; cursor: pointer;}
 ::-webkit-file-upload-button:hover{ color: #fafafa; background: #29ab87;}
 
