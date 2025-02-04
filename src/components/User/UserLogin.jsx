@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import FadeLoader from 'react-spinners/FadeLoader'
 import axios from 'axios'
 import '../User/User.css'
 
@@ -7,15 +8,15 @@ function UserLogin({ setUser }) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [spinner, setSpinner] = useState(false)
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        setEmail('');
-        setPassword('');
-    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setError('');
+        setSpinner(true);
         axios.post('https://stocktaker-server.onrender.com/login', { email, password })
             .then(res => {
                 if (res.data.status) {
@@ -25,10 +26,16 @@ function UserLogin({ setUser }) {
                     setPassword('');
                     navigate('/inventory');
                 } else {
-                    alert(res.data.message);
+                    setError(res.data.message || 'Login failed. Please try again.');
                 }
             })
-            .catch(err => { console.error(err); })
+            .catch(err => {
+                console.error(err);
+                setError('Something went wrong. Please try again later.');
+            })
+            .finally(() => {
+                setSpinner(false); // Stop spinner in all cases
+            });
     }
     return (
         <div className='user-container'>
@@ -37,6 +44,7 @@ function UserLogin({ setUser }) {
                 <div className='entry-logo'>
                     <img src="/images/icon.png" alt="" />
                 </div>
+                <div className='spinner'>{spinner && <FadeLoader color="#29ab87" loading={spinner} height={20} />}</div>
                 <h4>Login here</h4>
                 <form action='' onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
