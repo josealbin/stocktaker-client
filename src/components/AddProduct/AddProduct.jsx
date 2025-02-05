@@ -67,27 +67,27 @@ function AddProduct() {
         <div className="form-field">
           <div className="input-field">
             <label htmlFor="pid">SKU:</label>
-            <input type="text" placeholder="SKU" required onChange={e => setNewID(e.target.value)} /><br />
+            <input type="text" placeholder="SKU" value={newID} required onChange={e => setNewID(e.target.value)} /><br />
           </div>
           <div className="input-field">
             <label htmlFor="pname">Name:</label>
-            <input type="text" placeholder="Description" required onChange={e => setNewName(e.target.value)} /><br />
+            <input type="text" placeholder="Description" value={newName} required onChange={e => setNewName(e.target.value)} /><br />
           </div>
           <div className="select-field">
             <label htmlFor="pcategory">Category:</label>
-            <select onChange={e => setNewCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select><br />
+            <select value={newCategory} onChange={e => setNewCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select><br />
           </div>
           <div className="input-field">
             <label htmlFor="pstockin">Quantity In:</label>
-            <input type="text" placeholder="Qty In" onChange={e => setNewStock(e.target.value)} /><br />
+            <input type="text" placeholder="Qty In" value={newStock} onChange={e => setNewStock(e.target.value)} /><br />
           </div>
           <div className="input-field">
             <label htmlFor="pstockout">Quantity Out:</label>
-            <input type="text" placeholder="Qty Out" onChange={e => setNewOrder(e.target.value)} /><br />
+            <input type="text" placeholder="Qty Out" value={newOrder} onChange={e => setNewOrder(e.target.value)} /><br />
           </div>
           <div className="upload-field">
             <label htmlFor="pfile">File(Optional):</label>
-            <input type="file" accept='application/pdf' onChange={(e) => setNewFile(e.target.files[0])} /><br />
+            <input type="file" accept='application/pdf' value={newFile} onChange={(e) => setNewFile(e.target.files[0])} /><br />
           </div>
           <div className="control-field">
             <button className="update-btn-add"><FontAwesomeIcon icon={faFileCirclePlus} className='icon' />Add</button>
