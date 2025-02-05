@@ -35,16 +35,28 @@ function AddProduct() {
     }
     formData.append('productData', JSON.stringify(addedData));
 
-    axios.post('https://stocktaker-server.onrender.com/addProduct', addedData, formData)
+    axios.post('https://stocktaker-server.onrender.com/addProduct', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    })
       .then(res => {
         console.log(res.data);
-        window.location.reload();
+        //window.location.reload();
         setNewID(null)
+        setNewName('');
+        setNewCategory('');
+        setNewStock(0);
+        setNewOrder(0);
+        setNewFile(null);
       }).catch(err => { console.log(err); })
   }
 
   const handleCancel = () => {
-    window.location.reload()
+    setNewID('');
+    setNewName('');
+    setNewCategory('');
+    setNewStock(0);
+    setNewOrder(0);
+    setNewFile(null);
   }
 
   const options = [{ label: '- Select -', value: 1 }, { label: 'Savoury', value: 2 }, { label: 'Vegan', value: 3 }, { label: 'Ind Tarts', value: 4 }, { label: 'Ind Slices', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Sweet', value: 7 }]

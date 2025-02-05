@@ -16,3 +16,4 @@ h4{ text-align: center; }
 .user-container p a{ color: #4C74B9;}
 .login-path{ text-align: center; color: #4e4e4e; font-size: 15px; margin-top: -10px; }
 .login-path a{ color: #4C74B9;}
+.spinner{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 999; }
