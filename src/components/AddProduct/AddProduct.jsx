@@ -35,29 +35,16 @@ function AddProduct() {
     }
     formData.append('productData', JSON.stringify(addedData));
 
-    axios.post('https://stocktaker-server.onrender.com/addProduct', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
-    })
+    axios.post('https://stocktaker-server.onrender.com/addProduct', addedData, formData)
       .then(res => {
         console.log(res.data);
-        //window.location.reload();
-        setNewID('')
-        setNewName('');
-        setNewCategory('');
-        setNewStock(0);
-        setNewOrder(0);
-        setNewFile(null);
+        window.location.reload();
+        setNewID(null)
       }).catch(err => { console.log(err); })
   }
 
   const handleCancel = () => {
-    e.preventDefault();
-    setNewID('');
-    setNewName('');
-    setNewCategory('');
-    setNewStock(0);
-    setNewOrder(0);
-    setNewFile(null);
+    window.location.reload()
   }
 
   const options = [{ label: '- Select -', value: 1 }, { label: 'Savoury', value: 2 }, { label: 'Vegan', value: 3 }, { label: 'Ind Tarts', value: 4 }, { label: 'Ind Slices', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Sweet', value: 7 }]
@@ -68,23 +55,23 @@ function AddProduct() {
         <div className="form-field">
           <div className="input-field">
             <label htmlFor="pid">SKU:</label>
-            <input type="text" placeholder="SKU" value={newID} required onChange={e => setNewID(e.target.value)} /><br />
+            <input type="text" placeholder="SKU" required onChange={e => setNewID(e.target.value)} /><br />
           </div>
           <div className="input-field">
             <label htmlFor="pname">Name:</label>
-            <input type="text" placeholder="Description" value={newName} required onChange={e => setNewName(e.target.value)} /><br />
+            <input type="text" placeholder="Description" required onChange={e => setNewName(e.target.value)} /><br />
           </div>
           <div className="select-field">
             <label htmlFor="pcategory">Category:</label>
-            <select value={newCategory} onChange={e => setNewCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select><br />
+            <select onChange={e => setNewCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select><br />
           </div>
           <div className="input-field">
             <label htmlFor="pstockin">Quantity In:</label>
-            <input type="text" placeholder="Qty In" value={newStock} onChange={e => setNewStock(Number(e.target.value))} /><br />
+            <input type="text" placeholder="Qty In" onChange={e => setNewStock(e.target.value)} /><br />
           </div>
           <div className="input-field">
             <label htmlFor="pstockout">Quantity Out:</label>
-            <input type="text" placeholder="Qty Out" value={newOrder} onChange={e => setNewOrder(Number(e.target.value))} /><br />
+            <input type="text" placeholder="Qty Out" onChange={e => setNewOrder(e.target.value)} /><br />
           </div>
           <div className="upload-field">
             <label htmlFor="pfile">File(Optional):</label>
