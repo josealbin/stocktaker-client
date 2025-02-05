@@ -41,7 +41,7 @@ function AddProduct() {
       .then(res => {
         console.log(res.data);
         //window.location.reload();
-        setNewID(null)
+        setNewID('')
         setNewName('');
         setNewCategory('');
         setNewStock(0);
@@ -51,6 +51,7 @@ function AddProduct() {
   }
 
   const handleCancel = () => {
+    e.preventDefault();
     setNewID('');
     setNewName('');
     setNewCategory('');
@@ -79,15 +80,15 @@ function AddProduct() {
           </div>
           <div className="input-field">
             <label htmlFor="pstockin">Quantity In:</label>
-            <input type="text" placeholder="Qty In" value={newStock} onChange={e => setNewStock(e.target.value)} /><br />
+            <input type="text" placeholder="Qty In" value={newStock} onChange={e => setNewStock(Number(e.target.value))} /><br />
           </div>
           <div className="input-field">
             <label htmlFor="pstockout">Quantity Out:</label>
-            <input type="text" placeholder="Qty Out" value={newOrder} onChange={e => setNewOrder(e.target.value)} /><br />
+            <input type="text" placeholder="Qty Out" value={newOrder} onChange={e => setNewOrder(Number(e.target.value))} /><br />
           </div>
           <div className="upload-field">
             <label htmlFor="pfile">File(Optional):</label>
-            <input type="file" accept='application/pdf' value={newFile} onChange={(e) => setNewFile(e.target.files[0])} /><br />
+            <input type="file" accept='application/pdf' onChange={(e) => setNewFile(e.target.files[0])} /><br />
           </div>
           <div className="control-field">
             <button className="update-btn-add"><FontAwesomeIcon icon={faFileCirclePlus} className='icon' />Add</button>
