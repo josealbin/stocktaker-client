@@ -77,7 +77,7 @@ function Inventory() {
             date: new Date().toLocaleString() + "",
             name: prodname,
             category: category,
-            stock: stock,
+            stock: difference,
             order: order,
             difference: difference
         }
