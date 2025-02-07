@@ -72,7 +72,7 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
 .available p{ background: #86e49d;; color: #006b21!important; border-radius: 5px; padding: 2px 0 2px 0; margin: 0 20px 0 20px;}
 .low-stock p{ background: #FFC000;; color: #CC7722!important; border-radius: 5px; padding: 2px 0 2px 0; margin: 0 20px 0 20px;}
 
-.edit-btn, .remove-btn, .view-btn, .update-btn{ border-radius: 3px; padding: 3px 1px; margin-left: 4px; cursor: pointer; text-decoration: none;}
+.edit-btn, .remove-btn, .view-btn, .update-btn, .refresh-btn{ border-radius: 3px; padding: 3px 1px; margin-left: 4px; cursor: pointer; text-decoration: none;}
 .edit-btn{ border: 1px solid #29ab87; background: #29ab87; color: #fafafa; font-size: 13px;}
 .edit-btn:hover{ color: #eaeaea;}
 .remove-btn{ border: 1px solid #cb4a54; background: #cb4a54; color: #fafafa; font-size: 13px;}
@@ -81,6 +81,8 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
 .view-btn:hover{ color: #eaeaea;}
 .update-btn{ border: 1px solid #29ab87; background: #29ab87; color: #fafafa; font-size: 13px; }
 .update-btn:hover{ color: #eaeaea;}
+.refresh-btn{ border: 1px solid #4c9be0; background: #4c9be0; color: #fafafa; font-size: 13px;}
+.refresh-btn:hover{ color: #eaeaea;}
 .download-btn .icon{ cursor: pointer;}
 
 @media print { 

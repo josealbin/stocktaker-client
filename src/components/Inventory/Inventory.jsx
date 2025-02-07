@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './Inventory.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf, faSort, faMagnifyingGlass, faEraser, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faFilePdf, faSort, faMagnifyingGlass, faEraser, faArrowUpFromBracket, faRetweet } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import AddProduct from '../AddProduct/AddProduct'
 import * as XLSX from 'xlsx'
@@ -223,6 +223,20 @@ function Inventory() {
         }
     };
 
+    const handleOrderReset = () => {
+        axios.put(`https://stocktaker-server.onrender.com/resetOrders`)
+            .then(res => {
+                console.log(res.data);
+                // Update state for all products
+                setData(prevData => prevData.map(item => ({
+                    ...item,
+                    order: 0,
+                    difference: item.stock  // Adjust difference after resetting
+                })));
+            })
+            .catch(err => console.log(err));
+    };
+
     return (
         <div>
             <div>
@@ -235,6 +249,7 @@ function Inventory() {
                 <input type="file" className='upload_box' ref={fileInputRef} onChange={handleFileUpload} required />
                 <button className="update-btn" onClick={updateTableWithFileData}><FontAwesomeIcon icon={faArrowUpFromBracket} className='icon' />Upload</button>
                 <button className="remove-btn" onClick={handleClearFile} > <FontAwesomeIcon icon={faEraser} className='icon' />Clear</button>
+                <button className="refresh-btn" onClick={handleOrderReset} > <FontAwesomeIcon icon={faRetweet} className='icon' />Reset Orders</button>
                 <p>*accepted file formats .xlsx .csv</p>
             </div>
 

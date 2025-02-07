@@ -12,7 +12,6 @@ function UserLogin({ setUser }) {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-
     const handleSubmit = (e) => {
         e.preventDefault()
         setError('');
@@ -55,8 +54,6 @@ function UserLogin({ setUser }) {
                 </form>
             </div>
             <p className="login-path">New User? <Link to="/signup">Register here</Link></p>
-
-
         </div>
     )
 }
