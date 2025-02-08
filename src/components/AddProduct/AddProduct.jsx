@@ -84,8 +84,8 @@ function AddProduct() {
             <input type="file" accept='application/pdf' onChange={(e) => setNewFile(e.target.files[0])} /><br />
           </div>
           <div className="control-field">
-            <button className="update-btn-add"><FontAwesomeIcon icon={faFileCirclePlus} className='icon' />Add</button>
-            <button className="remove-btn-add" onClick={handleCancel}><FontAwesomeIcon icon={faEraser} className='icon' />Clear</button>
+            <button className="add-btn"><FontAwesomeIcon icon={faFileCirclePlus} className='icon' />Add</button>
+            <button className="clear-btn" onClick={handleCancel}><FontAwesomeIcon icon={faEraser} className='icon' />Clear</button>
           </div>
         </div>
       </form>

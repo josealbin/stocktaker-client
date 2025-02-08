@@ -26,11 +26,11 @@ body{ display: flex;}
 .input-field input:focus, .select-field select:focus{ border: 2px solid #344a72; }
 
 
-.remove-btn-add, .update-btn-add{ border-radius: 3px; text-decoration: none; font-size: 13px; margin: 0 5px 0 5px; padding: 8px 6px; display: flex; cursor: pointer;}
-.update-btn-add{ border: 1px solid #29ab87; background: #29ab87; color: #fafafa;  }
-.update-btn-add:hover{ color: #eaeaea;}
-.remove-btn-add{ border: 1px solid #cb4a54; background: #cb4a54; color: #fafafa; }
-.remove-btn-add:hover{ color: #eaeaea;}
+.clear-btn, .add-btn{ border-radius: 3px; text-decoration: none; font-size: 14px; margin: 0 5px 0 5px; padding: 8px 6px; display: flex; cursor: pointer;}
+.add-btn{ border: 1px solid #29ab87; background: #29ab87; color: #fafafa;  }
+.add-btn:hover{ color: #eaeaea;}
+.clear-btn{ border: 1px solid #cb4a54; background: #cb4a54; color: #fafafa; }
+.clear-btn:hover{ color: #eaeaea;}
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
