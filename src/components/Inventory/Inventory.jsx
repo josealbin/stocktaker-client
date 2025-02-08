@@ -164,19 +164,11 @@ function Inventory() {
             }));
 
             setFileData(updatedData);
-
         };
-
         reader.readAsArrayBuffer(file);
+        e.target.value = "";    // Clear file input
     };
 
-    const handleClearFile = () => {
-        if (fileInputRef.current) {
-            fileInputRef.current.value = ""; // Reset file input
-        }
-        setFileName(""); // Clear file name display
-        setFileData(null); // Clear file data
-    };
 
     // Function to update table data with file data and push changes to the database
     const updateTableWithFileData = () => {
@@ -204,14 +196,14 @@ function Inventory() {
                 }
                 return row;
             });
-
             // Now, send an HTTP request to update data in the database
             setTimeout(() => {
                 axios.post('https://stocktaker-server.onrender.com/updateData', { updatedTableData })
                     .then(res => {
                         console.log(res.data);
                         setData(updatedTableData);
-                        setFileData(null);
+                        setFileData(null); // Clear file data state
+                        setFileName(""); // Clear filename state
                         setSpinner(false);
 
                     })
@@ -222,6 +214,15 @@ function Inventory() {
             }, 3000); // 3 seconds delay
         }
     };
+
+    const handleClearFile = () => {
+        if (fileInputRef.current) {
+            fileInputRef.current.value = ""; // Reset file input
+        }
+        setFileName(""); // Clear file name display
+        setFileData(null); // Clear file data
+    };
+
 
     const handleOrderReset = () => {
         setSpinner(true);
