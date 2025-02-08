@@ -148,7 +148,7 @@ function Inventory() {
     // Function to handle file upload
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
-
+        if (!file) return; // Ensure a file is selected
         setFileName(file.name);
         const reader = new FileReader();
 
@@ -207,6 +207,10 @@ function Inventory() {
                         setFileName(""); // Clear filename state
                         setSpinner(false);
 
+                    // **Reset file input field after upload completes**
+                    if (fileInputRef.current) {
+                        fileInputRef.current.value = "";
+                    }
                     })
                     .catch(err => {
                         console.error(err)
