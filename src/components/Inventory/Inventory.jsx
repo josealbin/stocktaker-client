@@ -224,18 +224,21 @@ function Inventory() {
     };
 
     const handleOrderReset = () => {
+        setSpinner(true);
         axios.put(`https://stocktaker-server.onrender.com/resetOrders`)
             .then(res => {
                 console.log(res.data);
-                // Update state for all products
                 setData(prevData => prevData.map(item => ({
                     ...item,
                     order: 0,
-                    // difference: item.stock  // Adjust difference after resetting
                     stock: item.difference
                 })));
+                setSpinner(false);
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err);
+                setSpinner(false);
+            });
     };
 
     return (

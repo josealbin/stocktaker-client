@@ -12,6 +12,7 @@ function AddProduct() {
   const [newStock, setNewStock] = useState(0)
   const [newOrder, setNewOrder] = useState(0)
   const [newFile, setNewFile] = useState()
+  const [spinner, setSpinner] = useState(false)
 
 
   useEffect(() => {
@@ -21,7 +22,8 @@ function AddProduct() {
   }, [])
 
   const handleAdd = (e) => {
-    e.preventDefault()
+    setSpinner(true);
+    e.preventDefault();
     const formData = new FormData()
     formData.append('file', newFile)
     const addedData = {
@@ -38,9 +40,13 @@ function AddProduct() {
     axios.post('https://stocktaker-server.onrender.com/addProduct', addedData, formData)
       .then(res => {
         console.log(res.data);
+        setSpinner(false);
         window.location.reload();
         setNewID(null)
-      }).catch(err => { console.log(err); })
+      }).catch(err => { 
+        console.log(err); 
+        setSpinner(false);
+      })
   }
 
   const handleCancel = () => {
