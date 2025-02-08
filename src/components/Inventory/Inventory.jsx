@@ -199,7 +199,6 @@ function Inventory() {
                     return {
                         ...row,
                         order: updatedValues.order,
-                        stock: row.stock - updatedValues.order,
                         difference: difference,
                     };
                 }
