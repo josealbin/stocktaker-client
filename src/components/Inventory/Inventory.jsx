@@ -249,7 +249,7 @@ function Inventory() {
             </div>
             <div className="upload_file">
                 <input type="file" className='upload_box' ref={fileInputRef} onChange={handleFileUpload} required />
-                <button className="update-btn" onClick={updateTableWithFileData}><FontAwesomeIcon icon={faArrowUpFromBracket} className='icon' />Upload</button>
+                <button className="upload-btn" onClick={updateTableWithFileData}><FontAwesomeIcon icon={faArrowUpFromBracket} className='icon' />Upload</button>
                 <button className="refresh-btn" onClick={handleOrderReset} > <FontAwesomeIcon icon={faRetweet} className='icon' />Reset</button>
                 <p>*accepted file formats .xlsx .csv</p>
             </div>

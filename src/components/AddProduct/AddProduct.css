@@ -26,7 +26,7 @@ body{ display: flex;}
 .input-field input:focus, .select-field select:focus{ border: 2px solid #344a72; }
 
 
-.clear-btn, .add-btn{ border-radius: 3px; text-decoration: none; font-size: 13px; margin: 0 5px 0 5px; padding: 8px 6px; display: flex; cursor: pointer;}
+.clear-btn, .add-btn{ border-radius: 3px; text-decoration: none; font-size: 14px; margin: 0 5px 0 5px; padding: 5px; display: flex; cursor: pointer;}
 .add-btn{ border: 1px solid #29ab87; background: #29ab87; color: #fafafa;  }
 .add-btn:hover{ color: #eaeaea;}
 .clear-btn{ border: 1px solid #cb4a54; background: #cb4a54; color: #fafafa; }
