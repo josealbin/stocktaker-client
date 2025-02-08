@@ -200,7 +200,6 @@ function Inventory() {
                         ...row,
                         order: updatedValues.order,
                         difference: difference,
-                        stock: difference // could be deleted
                     };
                 }
                 return row;
