@@ -65,7 +65,7 @@ function Inventory() {
                 setProdname(res.data.name)
                 setCategory(res.data.category)
                 //setStock(res.data.stock)
-                setStock(res.data.difference)
+                setStock(res.data.difference);
                 setOrder(res.data.order)
                 setEditId(id)
             })
@@ -199,7 +199,7 @@ function Inventory() {
                     return {
                         ...row,
                         order: updatedValues.order,
-                        difference: difference
+                        difference: difference,
                     };
                 }
                 return row;
@@ -212,7 +212,6 @@ function Inventory() {
                         console.log(res.data);
                         setData(updatedTableData);
                         setFileData(null);
-                        //window.location.reload();
                         setSpinner(false);
 
                     })
@@ -228,9 +227,11 @@ function Inventory() {
         axios.put(`https://stocktaker-server.onrender.com/resetOrders`)
             .then(res => {
                 console.log(res.data);
+                // Update state for all products
                 setData(prevData => prevData.map(item => ({
                     ...item,
                     order: 0,
+                    // difference: item.stock  // Adjust difference after resetting
                     stock: item.difference
                 })));
             })
