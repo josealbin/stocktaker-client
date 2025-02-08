@@ -197,8 +197,8 @@ function Inventory() {
                     return {
                         ...row,
                         order: updatedValues.order,
-                        //difference: parseInt(row.stock) - parseInt(updatedValues.order)
-                        difference: row.stock - updatedValues.order
+                        difference: row.stock - updatedValues.order,
+                        stock: difference
                     };
                 }
                 return row;
