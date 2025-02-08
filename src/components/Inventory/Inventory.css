@@ -81,8 +81,8 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
 .view-btn:hover{ color: #eaeaea;}
 .update-btn{ border: 1px solid #29ab87; background: #29ab87; color: #fafafa; font-size: 13px; }
 .update-btn:hover{ color: #eaeaea;}
-.refresh-btn{ border: 1px solid #4c9be0; background: #4c9be0; color: #fafafa; font-size: 13px;}
-.refresh-btn:hover{ color: #eaeaea;}
+.refresh-btn{ border: 1px solid #4c9be0; background: #fafafa; color: #4c9be0; font-size: 13px;}
+.refresh-btn:hover{ background: #fafafa; color: #4c9be0;}
 .download-btn .icon{ cursor: pointer;}
 
 @media print { 
