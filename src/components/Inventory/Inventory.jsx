@@ -165,9 +165,9 @@ function Inventory() {
             }));
 
             setFileData(updatedData);
-            e.target.value = "";    // Clear file input
         };
         reader.readAsArrayBuffer(file);
+        e.target.value = "";    // Clear file input
     };
 
 
