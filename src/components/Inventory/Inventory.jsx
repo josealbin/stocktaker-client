@@ -233,10 +233,6 @@ function Inventory() {
                     order: 0,
                     stock: item.difference
                 })));
-                return axios.get("https://stocktaker-server.onrender.com/getProducts");
-            })
-            .then(response => {
-                setData(response.data); // Update state with fresh data
             })
             .catch(err => console.log(err));
     };
