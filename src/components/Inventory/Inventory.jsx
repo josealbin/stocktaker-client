@@ -194,12 +194,11 @@ function Inventory() {
             const updatedTableData = data.map(row => {
                 const updatedValues = updatedColumns[row.id];
                 if (updatedValues) {
-                    const difference = row.stock - updatedValues.order; 
+                    const difference = row.stock - updatedValues.order;
                     return {
                         ...row,
                         order: updatedValues.order,
-                        difference: difference,
-                        stock: difference
+                        difference: difference, 
                     };
                 }
                 return row;
