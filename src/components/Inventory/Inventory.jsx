@@ -228,8 +228,12 @@ function Inventory() {
         axios.put(`https://stocktaker-server.onrender.com/resetOrders`)
             .then(res => {
                 console.log(res.data);
-                // Fetch latest data from backend
-                return axios.get('https://stocktaker-server.onrender.com/getProducts');
+                setData(prevData => prevData.map(item => ({
+                    ...item,
+                    order: 0,
+                    stock: item.difference
+                })));
+                return axios.get("https://stocktaker-server.onrender.com/getProducts");
             })
             .then(response => {
                 setData(response.data); // Update state with fresh data
