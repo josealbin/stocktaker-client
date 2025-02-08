@@ -215,14 +215,6 @@ function Inventory() {
         }
     };
 
-    const handleClearFile = () => {
-        if (fileInputRef.current) {
-            fileInputRef.current.value = ""; // Reset file input
-        }
-        setFileName(""); // Clear file name display
-        setFileData(null); // Clear file data
-    };
-
 
     const handleOrderReset = () => {
         setSpinner(true);
