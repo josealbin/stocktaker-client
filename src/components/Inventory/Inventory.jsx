@@ -231,7 +231,8 @@ function Inventory() {
                 setData(prevData => prevData.map(item => ({
                     ...item,
                     order: 0,
-                    difference: item.stock  // Adjust difference after resetting
+                   // difference: item.stock  // Adjust difference after resetting
+                   stock: item.difference
                 })));
             })
             .catch(err => console.log(err));
