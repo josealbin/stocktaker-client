@@ -64,8 +64,8 @@ function Inventory() {
             .then(res => {
                 setProdname(res.data.name)
                 setCategory(res.data.category)
-                setStock(res.data.stock)
-                //setStock(res.data.difference);
+                //setStock(res.data.stock)
+                setStock(res.data.difference);
                 setOrder(res.data.order)
                 setEditId(id)
             })
@@ -200,7 +200,6 @@ function Inventory() {
                         ...row,
                         order: updatedValues.order,
                         difference: difference,
-                        stock: difference
                     };
                 }
                 return row;
