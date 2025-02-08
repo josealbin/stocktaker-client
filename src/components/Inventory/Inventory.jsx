@@ -148,6 +148,7 @@ function Inventory() {
     // Function to handle file upload
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
+        if (!file) return; // Ensure a file is selected
         setFileName(file.name);
         const reader = new FileReader();
 
@@ -164,9 +165,9 @@ function Inventory() {
             }));
 
             setFileData(updatedData);
+            e.target.value = "";    // Clear file input
         };
         reader.readAsArrayBuffer(file);
-        e.target.value = "";    // Clear file input
     };
 
 
