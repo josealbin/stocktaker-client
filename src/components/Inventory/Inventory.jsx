@@ -200,6 +200,7 @@ function Inventory() {
                         ...row,
                         order: updatedValues.order,
                         difference: difference,
+                        stock: difference
                     };
                 }
                 return row;
