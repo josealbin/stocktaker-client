@@ -61,7 +61,7 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
 .prod_table thead th:nth-child(2), .prod_table thead th:nth-child(7){ width: 5rem;}
 .prod_table thead th:nth-child(5), .prod_table thead th:nth-child(6){ width: 1rem;}
 .prod_table thead th:nth-child(3) .icon, .prod_table thead th:nth-child(4) .icon, .prod_table thead th:nth-child(8) .icon{ margin-left: 4px;}
-
+.prod_table thead th:nth-child(3){ width: 34rem; overflow: auto;}
 .prod_table tr:hover td{ background-color:#ADD8E6;}
 .prod_table tr:hover td:nth-child(1){ color: #b95754;}
 .prod_table tr:hover td:nth-child(2){ color: #006b21;}
