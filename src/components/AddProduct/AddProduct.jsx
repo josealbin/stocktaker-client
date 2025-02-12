@@ -41,12 +41,8 @@ function AddProduct() {
       .then(res => {
         console.log(res.data);
         setSpinner(false);
-        setNewID('')
-        setNewName('');
-        setNewCategory('');
-        setNewStock('');
-        setNewOrder('');
-        setNewFile(null);
+        window.location.reload();
+        setNewID(null)
       }).catch(err => { 
         console.log(err); 
         setSpinner(false);
@@ -54,12 +50,7 @@ function AddProduct() {
   }
 
   const handleCancel = () => {
-    setNewID("");
-    setNewName("");
-    setNewCategory("");
-    setNewStock("");
-    setNewOrder("");
-    setNewFile(null);
+    window.location.reload()
   }
 
   const options = [{ label: '- Select -', value: 1 }, { label: 'Savoury', value: 2 }, { label: 'Vegan', value: 3 }, { label: 'Ind Tarts', value: 4 }, { label: 'Ind Slices', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Sweet', value: 7 }]
