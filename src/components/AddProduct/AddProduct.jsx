@@ -41,8 +41,12 @@ function AddProduct() {
       .then(res => {
         console.log(res.data);
         setSpinner(false);
-        window.location.reload();
-        setNewID(null)
+        setNewID('')
+        setNewName('');
+        setNewCategory('');
+        setNewStock('');
+        setNewOrder('');
+        setNewFile(null);
       }).catch(err => { 
         console.log(err); 
         setSpinner(false);
