@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className='footer'>
       <div className='container'>
-        <p>© StockTaker. | 2024</p>
+        <p>© StockTaker. | 2025</p>
       </div>
     </div>
   )
