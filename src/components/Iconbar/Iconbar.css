@@ -16,8 +16,8 @@ body{ display: flex; align-items: center; background: #eaeaea;}
 .icon-container .icon:hover{ color: #4b6284;}
 .icon-container button{ background: none; border: none;}
 
-.fullscreen{ font-size: 2.5rem; font-weight: bold; text-align: center; letter-spacing: 2px; overflow: auto; background-color: #fafafa; color: #3B494F; border: none; padding: 20px;}
-.fullscreen th, .fullscreen td{ padding: 15px;}
-.fullscreen th:nth-last-child(-n+2), .fullscreen td:nth-last-child(-n+2) { display: none;}
-.fullscreen tr:hover td{ background:none;}
-.fullscreen tr:hover td:nth-child(1){ color: #6196CB;}
+.fullscreen-mode tbody tr td{ font-size: 2.5rem; font-weight: bold; text-align: center; letter-spacing: 2px; overflow: auto; background-color: #fafafa; color: #3B494F; border: none; padding: 20px;}
+.fullscreen-mode th, .fullscreen-mode td{ padding: 15px;}
+.fullscreen-mode th:nth-last-child(-n+2), .fullscreen td:nth-last-child(-n+2) { display: none;}
+.fullscreen-mode tr:hover td{ background:none;}
+.fullscreen-mode tr:hover td:nth-child(1){ color: #6196CB;}
