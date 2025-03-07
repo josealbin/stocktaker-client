@@ -16,7 +16,7 @@ body{ display: flex; align-items: center; background: #eaeaea;}
 .icon-container .icon:hover{ color: #4b6284;}
 .icon-container button{ background: none; border: none;}
 
-.fullscreen{ font-size: 1.8rem; overflow: auto; background-color: #fafafa; color: #3B494F; border: none;}
+.fullscreen{ overflow: auto; background-color: #fafafa; color: #3B494F; border: none;}
 .fullscreen th:nth-last-child(-n+2), .fullscreen td:nth-last-child(-n+2) { display: none;}
 .fullscreen tr:hover td{ background:none;}
 .fullscreen tr:hover td:nth-child(1){ color: #6196CB;}
