@@ -33,7 +33,7 @@ function Iconbar({ tableRef, searchRef }) {
             const table = tableRef.current;
             const isFullScreen = document.fullscreenElement;
             if (!isFullScreen) {
-                table.classList.remove('fullscreen-mode');
+                table.classList.remove('fullscreen');
             }
         };
         document.addEventListener('fullscreenchange', handleFullscreenChange);
