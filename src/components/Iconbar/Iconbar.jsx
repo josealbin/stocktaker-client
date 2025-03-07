@@ -48,11 +48,9 @@ function Iconbar({ tableRef, searchRef }) {
         if (!isFullScreen) {
             table.requestFullscreen();
             table.classList.add('fullscreen');
-            table.style.fontSize = "1.8rem";
         } else {
             document.exitFullscreen();
             table.classList.remove('fullscreen');
-            table.style.fontSize = "";
         }
     }
 
