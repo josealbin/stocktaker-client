@@ -18,7 +18,7 @@ function AddProduct() {
     if (!token) {
       console.error("No token found. Please log in.");
     } else {
-      axios.get('http://stocktaker-server.onrender.com/getProducts', {
+      axios.get('https://stocktaker-server.onrender.com/getProducts', {
         headers: { Authorization: `Bearer ${token}` }
       })
         .then(res => { console.log(res.data); })
@@ -47,7 +47,7 @@ function AddProduct() {
     }
     //formData.append('productData', JSON.stringify(addedData));
 
-    axios.post('http://stocktaker-server.onrender.com/addProduct', addedData, {
+    axios.post('https://stocktaker-server.onrender.com/addProduct', addedData, {
       headers: {
         Authorization: `Bearer ${token}`,
         //'Content-Type': 'multipart/form-data'
