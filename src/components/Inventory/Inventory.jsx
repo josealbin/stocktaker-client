@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './Inventory.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf, faSort, faMagnifyingGlass, faEraser, faArrowUpFromBracket, faRetweet } from '@fortawesome/free-solid-svg-icons'
+import { faFilePdf, faSort, faMagnifyingGlass, faArrowUpFromBracket, faRetweet } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import AddProduct from '../AddProduct/AddProduct'
 import * as XLSX from 'xlsx'
 import Controls from '../Controls/Controls'
 import Iconbar from '../Iconbar/Iconbar'
 import FadeLoader from 'react-spinners/FadeLoader'
-
 
 function Inventory() {
     const [search, setSearch] = useState('')
@@ -20,22 +19,27 @@ function Inventory() {
     const [editId, setEditId] = useState('')
     const [sortorder, setSortorder] = useState('ASC')
     const [fileData, setFileData] = useState(null)
+    //const [fileName, setFileName] = useState("");
     const [spinner, setSpinner] = useState(false)
-    const [fileName, setFileName] = useState("");
     const tableRef = useRef(null)
     const searchRef = useRef(null)
     const fileInputRef = useRef(null);
 
     useEffect(() => {
-        setSpinner(true); // Start spinner
-        axios.get('https://stocktaker-server.onrender.com/getProducts')
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.error("No token found, please log in.");
+            return;
+        }
+        axios.get('http://stocktaker-server.onrender.com/getProducts', {
+            headers: { Authorization: `Bearer ${token}` } // Send token
+        })
             .then(res => {
+                console.log("Products received:", res.data);
                 setData(res.data);
-                setSpinner(false); // Stop spinner
             })
             .catch(err => {
-                console.log(err);
-                setSpinner(false);
+                console.error("Error fetching products:", err.response?.data || err.message);
             });
     }, []);
 
@@ -60,7 +64,9 @@ function Inventory() {
 
 
     const handleEdit = (id) => {
-        axios.get('https://stocktaker-server.onrender.com/getProduct/' + id)
+        axios.get(`http://stocktaker-server.onrender.com/getProduct/${id}`, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        })                                                                         
             .then(res => {
                 setProdname(res.data.name)
                 setCategory(res.data.category)
@@ -78,47 +84,26 @@ function Inventory() {
             date: new Date().toLocaleString() + "",
             name: prodname,
             category: category,
-            stock: difference,
+            stock: stock,
             order: order,
             difference: difference
         }
-        axios.put('https://stocktaker-server.onrender.com/updateProduct/' + editId, updatedData)
+        axios.put(`http://stocktaker-server.onrender.com/updateProduct/${editId}`, updatedData, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        })
             .then(res => {
                 console.log(res.data);
-                // Update the product data in the state without reloading
-                setData(prevData => prevData.map(item =>
-                    item._id === editId ? { ...item, ...updatedData } : item
-                ));
+                setData(prevData => prevData.map(item => item._id === editId ? { ...item, ...updatedData } : item));
                 setProdname('');
                 setCategory('');
                 setStock('');
                 setOrder('');
-                setEditId(null);
+                setEditId(null)
             })
             .catch(err => console.log(err));
     }
 
-    const getStatus = (difference) => {
-        if (difference <= 0) return 'no-stock';
-        else if (difference > 0 && difference <= 10) return 'low-stock';
-        else return 'available';
-    };
-
-    const handleDelete = (id) => {
-        if (window.confirm("Deleted data cannot be reverted! Are you sure you want to delete this product?")) {
-            axios.delete('https://stocktaker-server.onrender.com/deleteProduct/' + id)
-                .then(res => {
-                    console.log(res);
-                    //window.location.reload();
-                    setData(prevData => prevData.filter(item => item._id !== id));
-                    //alert('Product deleted successfully');
-                })
-                .catch(err => { console.log(err); })
-        }
-    }
-
     const cancelUpdate = () => {
-        // Reset the form fields and edit mode
         setProdname('');
         setCategory('');
         setStock('');
@@ -126,7 +111,30 @@ function Inventory() {
         setEditId(null);
     }
 
+
+    const getStatus = (difference) => {
+        if (difference <= 0) return 'no-stock';
+        else if (difference > 0 && difference <= 10) return 'low-stock';
+        else return 'available';
+    };
+
+
+    const handleDelete = (id) => {
+        if (window.confirm("Deleted data cannot be reverted! Are you sure you want to delete this product?")) {
+            axios.delete(`http://stocktaker-server.onrender.com/deleteProduct/${id}`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
+                .then(res => {
+                    console.log(res);
+                    window.location.reload();
+                })
+                .catch(err => { console.log(err); })
+        }
+    }
+
+
     const options = [{ label: '- Select -', value: 1 }, { label: 'Savoury', value: 2 }, { label: 'Vegan', value: 3 }, { label: 'Ind Tarts', value: 4 }, { label: 'Ind Slices', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Sweet', value: 7 }]
+
 
     const sortCol = (col) => {
         if (sortorder === 'ASC') {
@@ -148,8 +156,6 @@ function Inventory() {
     // Function to handle file upload
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
-        if (!file) return; // Ensure a file is selected
-        setFileName(file.name);
         const reader = new FileReader();
 
         reader.onload = (e) => {
@@ -165,11 +171,9 @@ function Inventory() {
             }));
 
             setFileData(updatedData);
-            e.target.value = "";    // Clear file input
         };
         reader.readAsArrayBuffer(file);
     };
-
 
     // Function to update table data with file data and push changes to the database
     const updateTableWithFileData = () => {
@@ -192,38 +196,38 @@ function Inventory() {
                     return {
                         ...row,
                         order: updatedValues.order,
-                        difference: difference,
+                        difference: difference
                     };
                 }
                 return row;
             });
             // Now, send an HTTP request to update data in the database
             setTimeout(() => {
-                axios.post('https://stocktaker-server.onrender.com/updateData', { updatedTableData })
+                axios.post('http://stocktaker-server.onrender.com/updateData', {updatedTableData}, 
+                {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
                     .then(res => {
-                        console.log(res.data);
-                        setData(updatedTableData);
-                        setFileData(null); // Clear file data state
-                        setFileName(""); // Clear filename state
+                        setData(res.data);
+                        setFileData(null);
+                        window.location.reload();
                         setSpinner(false);
-
-                    // **Reset file input field after upload completes**
-                    if (fileInputRef.current) {
-                        fileInputRef.current.value = "";
-                    }
+                        
+                        if (fileInputRef.current) {            // **Reset file input field after upload completes**
+                            fileInputRef.current.value = "";
+                        }
                     })
                     .catch(err => {
                         console.error(err)
                         setSpinner(false);
                     }); // Handle any errors
+
             }, 3000); // 3 seconds delay
         }
     };
-    
 
     const handleOrderReset = () => {
         setSpinner(true);
-        axios.put(`https://stocktaker-server.onrender.com/resetOrders`)
+        axios.put("http://stocktaker-server.onrender.com/resetOrders", {}, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
             .then(res => {
                 console.log(res.data);
                 setData(prevData => prevData.map(item => ({

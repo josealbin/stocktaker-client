@@ -11,41 +11,53 @@ function AddProduct() {
   const [newCategory, setNewCategory] = useState('')
   const [newStock, setNewStock] = useState(0)
   const [newOrder, setNewOrder] = useState(0)
-  const [newFile, setNewFile] = useState()
-  const [spinner, setSpinner] = useState(false)
-
+  //const [newFile, setNewFile] = useState()
 
   useEffect(() => {
-    axios.get('https://stocktaker-server.onrender.com/getProducts')
-      .then(res => { console.log(res); })
-      .catch(err => { console.log(err); })
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error("No token found. Please log in.");
+    } else {
+      axios.get('http://stocktaker-server.onrender.com/getProducts', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+        .then(res => { console.log(res.data); })
+        .catch(err => { console.error("Request Error:", err.response?.data || err.message); })
+    }
   }, [])
 
   const handleAdd = (e) => {
-    setSpinner(true);
-    e.preventDefault();
-    const formData = new FormData()
-    formData.append('file', newFile)
+    e.preventDefault()
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      console.error("No token found. Please log in.");
+      return;
+    }
+    //const formData = new FormData()
+    //formData.append('file', newFile)
     const addedData = {
       date: new Date().toLocaleString() + "",
       id: newID,
       name: newName,
       category: newCategory,
-      stock: Number(newStock),
-      order: Number(newOrder),
-      difference: Number(newStock) - Number(newOrder)
+      stock: newStock,
+      order: newOrder,
+      difference: newStock - newOrder
     }
-    formData.append('productData', JSON.stringify(addedData));
+    //formData.append('productData', JSON.stringify(addedData));
 
-    axios.post('https://stocktaker-server.onrender.com/addProduct', addedData, formData)
+    axios.post('http://stocktaker-server.onrender.com/addProduct', addedData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        //'Content-Type': 'multipart/form-data'
+      }
+    })
       .then(res => {
         console.log(res.data);
-        setSpinner(false);
-        window.location.reload();
-        setNewID(null)
-      }).catch(err => { 
-        console.log(err); 
-        setSpinner(false);
+        window.location.reload()
+      }).catch(err => {
+        console.log(err);
       })
   }
 
@@ -81,11 +93,11 @@ function AddProduct() {
           </div>
           <div className="upload-field">
             <label htmlFor="pfile">File(Optional):</label>
-            <input type="file" accept='application/pdf' onChange={(e) => setNewFile(e.target.files[0])} /><br />
+            <input type="file" accept='application/pdf' /* onChange={(e) => setNewFile(e.target.files[0])}  */ /><br />
           </div>
           <div className="control-field">
-            <button className="add-btn"><FontAwesomeIcon icon={faFileCirclePlus} className='icon' />Add</button>
-            <button className="clear-btn" onClick={handleCancel}><FontAwesomeIcon icon={faEraser} className='icon' />Clear</button>
+            <button className="add-btn"><FontAwesomeIcon icon={faFileCirclePlus} className='icon' /> Add</button>
+            <button className="clear-btn" onClick={handleCancel}><FontAwesomeIcon icon={faEraser} className='icon' /> Clear</button>
           </div>
         </div>
       </form>
