@@ -31,15 +31,18 @@ function Inventory() {
             console.error("No token found, please log in.");
             return;
         }
+        setSpinner(true);
         axios.get('https://stocktaker-server.onrender.com/getProducts', {
             headers: { Authorization: `Bearer ${token}` } // Send token
         })
             .then(res => {
                 console.log("Products received:", res.data);
                 setData(res.data);
+                setSpinner(false);
             })
             .catch(err => {
                 console.error("Error fetching products:", err.response?.data || err.message);
+                setSpinner(false);
             });
     }, []);
 
