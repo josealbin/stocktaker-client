@@ -45,8 +45,8 @@ function UserLogin({ setUser }) {
                 <div className='entry-logo'>
                     <img src="/images/icon.png" alt="" />
                 </div>
-                <div className='spinner'>{spinner && <FadeLoader color="#29ab87" loading={spinner} height={20} />}</div>
                 <h4>Login here</h4>
+                <div className='spinner'>{spinner && <FadeLoader color="#29ab87" loading={spinner} height={20} />}</div>
                 <form action='' onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
                     <input type="email" value={email} placeholder="" required onChange={(e) => setEmail(e.target.value)} />
