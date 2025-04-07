@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className='footer'>
       <div className='container'>
-        <p>© StockTaker. 2025 | All rights reserved.</p>
+        <p><img src="/images/icon.png" alt="StockTaker Logo" />© StockTaker. 2025 | All rights reserved.</p>
       </div>
     </div>
   )
