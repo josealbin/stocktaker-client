@@ -3,9 +3,15 @@ export default function Validation(values){
 
     const email_pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!values.email){
-        errors.email = "Email should not be empty."
+        errors.email = "Email is required."
     }else if(!email_pattern.test(values.email)){
         errors.email = "Invalid Email!"
     }
+
+
+    if(!values.password){
+        errors.password = "Email is required."
+    }
+
     return errors;
 }

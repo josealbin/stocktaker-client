@@ -57,8 +57,10 @@ function UserLogin({ setUser }) {
                 <form action='' onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    {errors.email && <span className='valid-error'>{errors.email}</span>}
                     <label htmlFor="pass">Password</label>
                     <input type="password" value={password} placeholder="************" required onChange={(e) => setPassword(e.target.value)} />
+                    {errors.password && <span className='valid-error'>{errors.password}</span>}
                     <button type='submit'>Login</button>
                 </form>
             </div>
