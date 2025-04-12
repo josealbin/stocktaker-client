@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import FadeLoader from 'react-spinners/FadeLoader'
 import axios from 'axios'
-import Validation from '../Validation';
 import '../User/User.css'
 
 function UserLogin({ setUser }) {
@@ -10,7 +9,6 @@ function UserLogin({ setUser }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate();
-    const [errors, setErrors] = useState({})
     const [spinner, setSpinner] = useState(false)
 
     useEffect(() => {
@@ -20,11 +18,6 @@ function UserLogin({ setUser }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const errs = Validation({email, password})
-        setErrors(errs)
-        if (Object.keys(errs).length > 0) {
-            return;
-        }
         setSpinner(true);
         axios.post('https://stocktaker-server.onrender.com/login', { email, password })
             .then(res => {
@@ -56,11 +49,9 @@ function UserLogin({ setUser }) {
                 <div className='spinner'>{spinner && <FadeLoader color="#29ab87" loading={spinner} height={20} />}</div>
                 <form action='' onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    {errors.email && <span className='valid-error'>{errors.email}</span>}
+                    <input type="email" value={email} required onChange={(e) => setEmail(e.target.value)} />
                     <label htmlFor="pass">Password</label>
-                    <input type="password" value={password} placeholder="************" onChange={(e) => setPassword(e.target.value)} />
-                    {errors.password && <span className='valid-error'>{errors.password}</span>}
+                    <input type="password" value={password} placeholder="************" required onChange={(e) => setPassword(e.target.value)} />
                     <button type='submit'>Login</button>
                 </form>
             </div>

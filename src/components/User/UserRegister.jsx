@@ -2,18 +2,25 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import FadeLoader from 'react-spinners/FadeLoader'
 import axios from 'axios'
+import Validation from '../Validation';
 import '../User/User.css'
 
 function UserRegister() {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [errors, setErrors] = useState({})
     const [spinner, setSpinner] = useState(false)
 
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        const errs = Validation({email, password})
+        setErrors(errs)
+        if (Object.keys(errs).length > 0) {
+            return;
+        }
         setSpinner(true);
         axios.post('https://stocktaker-server.onrender.com/signup', { username, email, password })
             .then(res => { if (res.data.status) { navigate('/') } })
@@ -38,9 +45,11 @@ function UserRegister() {
                     <label htmlFor="uname">User Name</label>
                     <input type="text" placeholder="" required onChange={(e) => { setUsername(e.target.value) }} />
                     <label htmlFor="email">Email</label>
-                    <input type="email" placeholder="" required onChange={(e) => { setEmail(e.target.value) }} />
+                    <input type="email" placeholder="" onChange={(e) => { setEmail(e.target.value) }} />
+                    {errors.email && <span className='valid-error'>{errors.email}</span>}
                     <label htmlFor="pass">Password</label>
-                    <input type="password" placeholder="************" required onChange={(e) => { setPassword(e.target.value) }} />
+                    <input type="password" placeholder="************" onChange={(e) => { setPassword(e.target.value) }} />
+                    {errors.password && <span className='valid-error'>{errors.password}</span>}
                     <button type="submit">Submit</button>
                 </form>
                 <p>By clicking Submit, you agree to our<br />
