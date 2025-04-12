@@ -37,7 +37,8 @@ function UserLogin({ setUser }) {
                 }
             })
             .catch(err => {
-                console.error("Login Error:", err.response?.data || err.message);
+                const errorMsg = err.response?.data?.message || "Something went wrong.";
+                setLoginError(errorMsg);
                 setSpinner(false);
             });
     }
