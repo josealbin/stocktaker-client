@@ -8,8 +8,9 @@ function UserLogin({ setUser }) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const navigate = useNavigate();
+    const [loginError, setLoginError] = useState('');
     const [spinner, setSpinner] = useState(false)
+    const navigate = useNavigate();
 
     useEffect(() => {
         setEmail('');
@@ -19,6 +20,7 @@ function UserLogin({ setUser }) {
     const handleSubmit = (e) => {
         e.preventDefault()
         setSpinner(true);
+        setLoginError(''); 
         axios.post('https://stocktaker-server.onrender.com/login', { email, password })
             .then(res => {
                 console.log("Login Response:", res.data); // Log response to check for token
@@ -30,14 +32,15 @@ function UserLogin({ setUser }) {
                     setPassword('');
                     navigate('/inventory');
                 } else {
-                    alert(res.data.message);
+                    setLoginError(res.data.message);
                     setSpinner(false);
                 }
             })
-            .catch(err => { 
-                console.error("Login Error:", err.response?.data || err.message); 
+            .catch(err => {
+                const errorMsg = err.response?.data?.message || "Something went wrong.";
+                setLoginError(errorMsg);
                 setSpinner(false);
-            })
+            });
     }
     return (
         <div className='user-container'>
@@ -54,6 +57,7 @@ function UserLogin({ setUser }) {
                     <label htmlFor="pass">Password</label>
                     <input type="password" value={password} placeholder="************" required onChange={(e) => setPassword(e.target.value)} />
                     <button type='submit'>Login</button>
+                    {loginError && <p className="login-error">{loginError}</p>}
                 </form>
             </div>
             <p className="login-path">New User? <Link to="/signup">Register here</Link></p>
