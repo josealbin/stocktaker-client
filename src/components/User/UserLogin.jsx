@@ -20,7 +20,7 @@ function UserLogin({ setUser }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const errs = Validation({email})
+        const errs = Validation({email, password})
         setErrors(errs)
         if (Object.keys(errs).length > 0) {
             return;
