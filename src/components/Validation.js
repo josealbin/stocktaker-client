@@ -8,9 +8,8 @@ export default function Validation(values){
         errors.email = "Invalid Email!"
     }
 
-
     if(!values.password){
-        errors.password = "Email is required."
+        errors.password = "Password is required."
     }
 
     return errors;
