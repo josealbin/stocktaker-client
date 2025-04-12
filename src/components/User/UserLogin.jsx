@@ -31,6 +31,7 @@ function UserLogin({ setUser }) {
                     navigate('/inventory');
                 } else {
                     alert(res.data.message);
+                    setSpinner(false);
                 }
             })
             .catch(err => { 
