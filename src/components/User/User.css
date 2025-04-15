@@ -12,7 +12,7 @@ h4{ text-align: center; }
 .login-box form input, .signup-box form input{ font-size: 12px; width: 100%; padding: 7px; border: none; border: 1px solid gray; border-radius: 6px; outline: none; }
 .signup-box button, .login-box button{ width: 100%; height: 35px; margin-top: 20px; border: none; border-radius: 6px; background-color: #344a72; color: #fafafa; font-size: 18px; cursor: pointer;}
 .signup-box button:hover, .login-box button:hover{color: #eaeaea;}
-.user-container p{ text-align: center; margin-top: 20px; font-size: 15px; }
+.user-container p{ text-align: center; margin: 20px; font-size: 15px; }
 .user-container p a{ color: #4C74B9;}
 .login-path{ text-align: center; color: #4e4e4e; font-size: 15px; margin-top: -10px; }
 .login-path a{ color: #4C74B9;}
