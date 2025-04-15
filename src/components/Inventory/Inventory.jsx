@@ -32,7 +32,7 @@ function Inventory() {
             return;
         }
         setSpinner(true);
-        axios.get('https://stocktaker-server.onrender.com/getProducts', {
+        axios.get('https://api.stocktaker.net/getProducts', {
             headers: { Authorization: `Bearer ${token}` } // Send token
         })
             .then(res => {
@@ -67,7 +67,7 @@ function Inventory() {
 
 
     const handleEdit = (id) => {
-        axios.get(`https://stocktaker-server.onrender.com/getProduct/${id}`, {
+        axios.get(`https://api.stocktaker.net/getProduct/${id}`, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })                                                                         
             .then(res => {
@@ -91,7 +91,7 @@ function Inventory() {
             order: order,
             difference: difference
         }
-        axios.put(`https://stocktaker-server.onrender.com/updateProduct/${editId}`, updatedData, {
+        axios.put(`https://api.stocktaker.net/updateProduct/${editId}`, updatedData, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
             .then(res => {
@@ -124,7 +124,7 @@ function Inventory() {
 
     const handleDelete = (id) => {
         if (window.confirm("Deleted data cannot be reverted! Are you sure you want to delete this product?")) {
-            axios.delete(`https://stocktaker-server.onrender.com/deleteProduct/${id}`, {
+            axios.delete(`https://api.stocktaker.net/deleteProduct/${id}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             })
                 .then(res => {
@@ -206,7 +206,7 @@ function Inventory() {
             });
             // Now, send an HTTP request to update data in the database
             setTimeout(() => {
-                axios.post('https://stocktaker-server.onrender.com/updateData', {updatedTableData}, 
+                axios.post('https://api.stocktaker.net/updateData', {updatedTableData}, 
                 {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
                     .then(res => {
                         setData(res.data);
@@ -229,7 +229,7 @@ function Inventory() {
 
     const handleOrderReset = () => {
         setSpinner(true);
-        axios.put("https://stocktaker-server.onrender.com/resetOrders", {}, {
+        axios.put("https://api.stocktaker.net/resetOrders", {}, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
             .then(res => {
                 console.log(res.data);

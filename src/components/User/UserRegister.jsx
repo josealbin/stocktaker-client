@@ -22,7 +22,7 @@ function UserRegister() {
             return;
         }
         setSpinner(true);
-        axios.post('https://stocktaker-server.onrender.com/signup', { username, email, password })
+        axios.post('https://api.stocktaker.net/signup', { username, email, password })
             .then(res => { if (res.data.status) { navigate('/') } })
             .catch(err => {
                 console.log(err);

@@ -21,7 +21,7 @@ function UserLogin({ setUser }) {
         e.preventDefault()
         setSpinner(true);
         setLoginError(''); 
-        axios.post('https://stocktaker-server.onrender.com/login', { email, password })
+        axios.post('https://api.stocktaker.net/login', { email, password })
             .then(res => {
                 console.log("Login Response:", res.data); // Log response to check for token
                 if (res.data.status && res.data.token) {
