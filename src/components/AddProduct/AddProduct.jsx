@@ -9,8 +9,8 @@ function AddProduct() {
   const [newID, setNewID] = useState('')
   const [newName, setNewName] = useState('')
   const [newCategory, setNewCategory] = useState('')
-  const [newStock, setNewStock] = useState(0)
-  const [newOrder, setNewOrder] = useState(0)
+  const [newStock, setNewStock] = useState('')
+  const [newOrder, setNewOrder] = useState('')
   //const [newFile, setNewFile] = useState()
 
   useEffect(() => {
@@ -61,8 +61,13 @@ function AddProduct() {
       })
   }
 
-  const handleCancel = () => {
-    window.location.reload()
+  const handleCancel = (e) => {
+    e.preventDefault();
+    setNewID('');
+    setNewName('');
+    setNewCategory('');
+    setNewStock('');
+    setNewOrder('');
   }
 
   const options = [{ label: '- Select -', value: 1 }, { label: 'Savoury', value: 2 }, { label: 'Vegan', value: 3 }, { label: 'Ind Tarts', value: 4 }, { label: 'Ind Slices', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Sweet', value: 7 }]
@@ -73,23 +78,23 @@ function AddProduct() {
         <div className="form-field">
           <div className="input-field">
             <label htmlFor="pid">SKU:</label>
-            <input type="text" placeholder="SKU" required onChange={e => setNewID(e.target.value)} /><br />
+            <input type="text" value={newID} placeholder="SKU" required onChange={e => setNewID(e.target.value)} /><br />
           </div>
           <div className="input-field">
             <label htmlFor="pname">Name:</label>
-            <input type="text" placeholder="Description" required onChange={e => setNewName(e.target.value)} /><br />
+            <input type="text" value={newName} placeholder="Description" required onChange={e => setNewName(e.target.value)} /><br />
           </div>
           <div className="select-field">
             <label htmlFor="pcategory">Category:</label>
-            <select onChange={e => setNewCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select><br />
+            <select value={newCategory} onChange={e => setNewCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select><br />
           </div>
           <div className="input-field">
             <label htmlFor="pstockin">Quantity In:</label>
-            <input type="text" placeholder="Qty In" onChange={e => setNewStock(e.target.value)} /><br />
+            <input type="text" value={newStock} placeholder="Qty In" onChange={e => setNewStock(e.target.value)} /><br />
           </div>
           <div className="input-field">
             <label htmlFor="pstockout">Quantity Out:</label>
-            <input type="text" placeholder="Qty Out" onChange={e => setNewOrder(e.target.value)} /><br />
+            <input type="text" value={newOrder} placeholder="Qty Out" onChange={e => setNewOrder(e.target.value)} /><br />
           </div>
           <div className="upload-field">
             <label htmlFor="pfile">File(Optional):</label>
