@@ -31,11 +31,11 @@ function App() {
     }
   }, [location, navigate]);
 
-  const isAuthRoute = location.pathname === '/' || location.pathname === '/signup';
+  const isLoginPage = location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/admin-login';
 
   return (
     <div>
-      {isAuthRoute ? <LoginNavbar /> : <Navbar user={user} setUser={setUser}/>}
+      {isLoginPage ? <LoginNavbar /> : <Navbar user={user} setUser={setUser}/>}
       <Routes>
         <Route path='/' element={<UserLogin setUser={setUser}/>}></Route>
         <Route path='/signup' element={<UserRegister />}></Route>
