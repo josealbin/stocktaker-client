@@ -40,7 +40,7 @@ function UserRegister() {
                     <img src="/images/icon.png" alt="" />
                 </div>
                 <div className='spinner'>{spinner && <FadeLoader color="#29ab87" loading={spinner} height={20} />}</div>
-                <h4>New user? Register here</h4>
+                <h4>New User Registration</h4>
                 <form action="" onSubmit={handleSubmit}>
                     <label htmlFor="uname">User Name</label>
                     <input type="text" placeholder="" required onChange={(e) => { setUsername(e.target.value) }} />

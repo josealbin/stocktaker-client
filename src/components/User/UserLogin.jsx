@@ -60,7 +60,7 @@ function UserLogin({ setUser }) {
                     {loginError && <p className="login-error">{loginError}</p>}
                 </form>
             </div>
-            <p className="login-path">New User ? <Link to="/signup">Register here</Link></p>
+            <p className="login-path">New User? <Link to="/signup">Register here.</Link></p>
         </div>
     )
 }
