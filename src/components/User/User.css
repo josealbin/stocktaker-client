@@ -6,7 +6,7 @@
 .login-box img, .signup-box img{ width: 65px; margin-top: -30px;}
 .entry-logo{ text-align: center; padding: 20px;}
 .entry-logo img{ width: 4rem;}
-h4{ text-align: center; }
+h4{ text-align: center; letter-spacing: 1px; }
 .login-box form, .signup-box form{ width: 300px; margin-left: 20px; }
 .login-box form label, .signup-box form label{ display: flex; margin-top: 20px; font-size: 16px; letter-spacing: 1px; }
 .login-box form input, .signup-box form input{ font-size: 12px; width: 100%; padding: 7px; border: none; border: 1px solid gray; border-radius: 6px; outline: none; }
