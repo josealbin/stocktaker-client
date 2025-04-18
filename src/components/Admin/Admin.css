@@ -3,7 +3,7 @@
 .admin-container{ color: #4e4e4e; position: relative; top: 50%; left: 50%;}
 
 .login-box{ width: 350px; height: 400px; margin: auto; background-color: #fafafa; border-radius: 3px; }
-.admin-container .entry-logo{ text-align: center; padding-top: 80px;}
+.admin-container .entry-logo{ text-align: center; padding-top: 70px;}
 .entry-logo img{ width: 4rem;}
 h4{ text-align: center; }
 .login-box form{ width: 300px; margin-left: 20px; }
