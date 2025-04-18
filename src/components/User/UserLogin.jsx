@@ -61,8 +61,6 @@ function UserLogin({ setUser }) {
                 </form>
             </div>
             <p className="login-path">New User? <Link to="/signup">Register here</Link></p>
-
-
         </div>
     )
 }

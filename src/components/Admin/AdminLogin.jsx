@@ -56,7 +56,7 @@ function AdminLogin({ setUser }) {
                     <label htmlFor="pass">Password</label>
                     <input type="password" value={password} placeholder="************" required onChange={(e) => setPassword(e.target.value)} />
                     <button type='submit'>Login</button>
-                    {loginError && <p className="login-error">Admin Login Failed:{loginError}</p>}
+                    {loginError && <p className="login-error">{loginError}</p>}
                 </form>
             </div>
             <p className="login-path"><Link to="/login">User Login?</Link></p>
