@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './Inventory.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf, faSort, faMagnifyingGlass, faArrowUpFromBracket, faRetweet } from '@fortawesome/free-solid-svg-icons'
+import { faSort, faMagnifyingGlass, faArrowUpFromBracket, faRetweet, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import AddProduct from '../AddProduct/AddProduct'
 import * as XLSX from 'xlsx'
@@ -300,7 +300,7 @@ function Inventory() {
                                             <td data-label="Qty_Out"><input type="text" value={order} onChange={e => setOrder(e.target.value)} onBlur={calculateOrder} /></td>
                                             <td data-label="Level" className={getStatus(product.difference)}><p>{product.difference}</p></td>
                                             <td data-label="Status" className={getStatus(product.difference)}><p>{getStatus(product.difference)}</p></td>
-                                            <td data-label="File" className='download-btn'><FontAwesomeIcon icon={faFilePdf} className='icon' /></td>
+                                            <td data-label="File" className='download-btn'><FontAwesomeIcon icon={faArrowUpRightFromSquare} className='icon' /></td>
                                             <td>
                                                 <button onClick={handleUpdate} className='update-btn'>Update</button>
                                                 <button onClick={cancelUpdate} className='remove-btn'>Cancel</button>
@@ -316,7 +316,7 @@ function Inventory() {
                                             <td data-label="Qty_Out">{product.order}</td>
                                             <td data-label="Level" className={getStatus(product.difference)}><p>{product.difference}</p></td>
                                             <td data-label="Status" className={getStatus(product.difference)}><p>{getStatus(product.difference)}</p></td>
-                                            <td data-label="File" className='download-btn'><FontAwesomeIcon icon={faFilePdf} className='icon' /></td>
+                                            <td data-label="File" className='download-btn'><FontAwesomeIcon icon={faArrowUpRightFromSquare} className='icon' /></td>
                                             <td className='no-print'>
                                                 <button className='view-btn'>View</button>
                                                 <button onClick={() => handleEdit(product._id)} className='edit-btn'>Edit</button>
