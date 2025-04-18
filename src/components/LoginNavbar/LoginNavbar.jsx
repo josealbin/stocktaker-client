@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleInfo, faGear } from '@fortawesome/free-solid-svg-icons'
+import { faCircleInfo, faGear, faBell } from '@fortawesome/free-solid-svg-icons'
 import '../LoginNavbar/LoginNavbar.css'
 import { Link } from 'react-router-dom'
 
@@ -15,6 +15,7 @@ function LoginNavbar() {
                 </div>
                 <nav className='user_block'>
                     <button><Link to="/admin-login"><FontAwesomeIcon icon={faGear} className='tools-icon' /></Link></button> 
+                    <button><Link to="/information"><FontAwesomeIcon icon={faBell} className='tools-icon' /></Link></button>
                     <button><Link to="/information"><FontAwesomeIcon icon={faCircleInfo} className='tools-icon' /></Link></button>
                 </nav>
             </div>
