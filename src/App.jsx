@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div>
-      {isAuthRoute ? <LoginNavbar /> : <Navbar user={user}/>}
+      {isAuthRoute ? <LoginNavbar /> : <Navbar user={user} setUser={setUser}/>}
       <Routes>
         <Route path='/' element={<UserLogin setUser={setUser}/>}></Route>
         <Route path='/signup' element={<UserRegister />}></Route>
