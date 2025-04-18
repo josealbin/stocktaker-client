@@ -2,13 +2,15 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPowerOff, faUserCircle, faChevronDown} from '@fortawesome/free-solid-svg-icons'
 import '../Navbar/Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function Navbar({ user, setUser }) {
+    const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem('username');
         setUser('');
+        navigate('/');
     }
     return (
         <div className='header'>

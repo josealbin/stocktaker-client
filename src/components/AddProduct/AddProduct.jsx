@@ -41,9 +41,9 @@ function AddProduct() {
       id: newID,
       name: newName,
       category: newCategory,
-      stock: newStock,
-      order: newOrder,
-      difference: newStock - newOrder
+      stock: Number(newStock),
+      order: Number(newOrder),
+      difference: Number(newStock) - Number(newOrder)
     }
     //formData.append('productData', JSON.stringify(addedData));
 
