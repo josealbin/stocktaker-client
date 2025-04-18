@@ -59,7 +59,7 @@ function AdminLogin({ setUser }) {
                     {loginError && <p className="login-error">Admin Login Failed:{loginError}</p>}
                 </form>
             </div>
-
+            <p className="login-path"><Link to="/login">User Login?</Link></p>
         </div>
     )
 }
