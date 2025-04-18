@@ -48,7 +48,7 @@ function AdminLogin({ setUser }) {
                 <div className='entry-logo'>
                     <img src="/images/icon.png" alt="" />
                 </div>
-                <h4>Admin Access</h4>
+                <h4>Admin Panel Login</h4>
                 <div className='spinner'>{spinner && <FadeLoader color="#29ab87" loading={spinner} height={20} />}</div>
                 <form action='' onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
