@@ -15,5 +15,4 @@ h4{ text-align: center; letter-spacing: 1px; }
 .admin-container p a{ color: #4C74B9;}
 .login-path{ text-align: center; color: #4e4e4e; font-size: 15px; margin-top: -10px; }
 .login-path a{ color: #4C74B9;}
-.valid-error { background-color: #ffe4e5; color: #4e4e4e;}
-.login-error { font-size: 0.9rem; background-color: #ffe4e5; color: #4e4e4e; }
+.login-error { font-size: 0.9rem; background-color: #ffe4e5; color: #4e4e4e; padding: 2px; border: .5px solid salmon; }
