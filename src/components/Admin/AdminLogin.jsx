@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import FadeLoader from 'react-spinners/FadeLoader'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios'
 import '../Admin/Admin.css'
 
@@ -56,7 +58,7 @@ function AdminLogin({ setUser }) {
                     <label htmlFor="pass">Password</label>
                     <input type="password" value={password} placeholder="************" required onChange={(e) => setPassword(e.target.value)} />
                     <button type='submit'>Login</button>
-                    {loginError && <p className="login-error">{loginError}</p>}
+                    {loginError && <p className="login-error"><FontAwesomeIcon icon={faTriangleExclamation} className='icon' />{loginError}</p>}
                 </form>
             </div>
             <p className="login-path">Exit to <Link to="/login">User Login</Link>?</p>

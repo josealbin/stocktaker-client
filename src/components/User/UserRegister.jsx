@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import FadeLoader from 'react-spinners/FadeLoader'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import Validation from '../Validation';
 import '../User/User.css'
@@ -46,10 +48,10 @@ function UserRegister() {
                     <input type="text" placeholder="" required onChange={(e) => { setUsername(e.target.value) }} />
                     <label htmlFor="email">Email</label>
                     <input type="email" placeholder="" onChange={(e) => { setEmail(e.target.value) }} />
-                    {errors.email && <span className='valid-error'>{errors.email}</span>}
+                    {errors.email && <span className='valid-error'><FontAwesomeIcon icon={faTriangleExclamation} className='icon' />{errors.email}</span>}
                     <label htmlFor="pass">Password</label>
                     <input type="password" placeholder="************" onChange={(e) => { setPassword(e.target.value) }} />
-                    {errors.password && <span className='valid-error'>{errors.password}</span>}
+                    {errors.password && <span className='valid-error'><FontAwesomeIcon icon={faTriangleExclamation} className='icon' />{errors.password}</span>}
                     <button type="submit">Submit</button>
                 </form>
                 <p>By clicking Submit, you agree to our<br />
