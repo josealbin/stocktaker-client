@@ -47,6 +47,7 @@ function AdminLogin({ setUser }) {
     return (
         <div className='admin-container'>
             <div className="login-box">
+            <img src="/images/admin.png" alt="" />
                 <div className='entry-logo'>
                     <img src="/images/icon.png" alt="" />
                 </div>
