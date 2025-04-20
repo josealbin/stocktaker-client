@@ -5,7 +5,7 @@ export default function Validation(values){
     if(!values.email){
         errors.email = "Email is required."
     }else if(!email_pattern.test(values.email)){
-        errors.email = "Invalid Email!"
+        errors.email = "Invalid Email."
     }
 
     if(!values.password){
