@@ -59,7 +59,7 @@ function UserLogin({ setUser }) {
                     <label htmlFor="pass">Password</label>
                     <input type="password" value={password} placeholder="************" required onChange={(e) => setPassword(e.target.value)} />
                     <button type='submit'>Login</button>
-                    {loginError && <p className="login-error"><FontAwesomeIcon icon={faTriangleExclamation} className='icon' />{loginError}</p>}
+                    {loginError && <p className="login-error"><FontAwesomeIcon icon={faTriangleExclamation} className='icon' /> {loginError}</p>}
                 </form>
             </div>
             <p className="login-path">New User? <Link to="/signup">Register here.</Link></p>

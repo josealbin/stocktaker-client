@@ -48,10 +48,10 @@ function UserRegister() {
                     <input type="text" placeholder="" required onChange={(e) => { setUsername(e.target.value) }} />
                     <label htmlFor="email">Email</label>
                     <input type="email" placeholder="" onChange={(e) => { setEmail(e.target.value) }} />
-                    {errors.email && <span className='valid-error'><FontAwesomeIcon icon={faTriangleExclamation} className='icon' />{errors.email}</span>}
+                    {errors.email && <span className='valid-error'><FontAwesomeIcon icon={faTriangleExclamation} className='icon' /> {errors.email}</span>}
                     <label htmlFor="pass">Password</label>
                     <input type="password" placeholder="************" onChange={(e) => { setPassword(e.target.value) }} />
-                    {errors.password && <span className='valid-error'><FontAwesomeIcon icon={faTriangleExclamation} className='icon' />{errors.password}</span>}
+                    {errors.password && <span className='valid-error'><FontAwesomeIcon icon={faTriangleExclamation} className='icon' /> {errors.password}</span>}
                     <button type="submit">Submit</button>
                 </form>
                 <p>By clicking Submit, you agree to our<br />
