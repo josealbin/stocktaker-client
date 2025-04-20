@@ -4,7 +4,7 @@
 .signup-box{ width: 360px; height: 550px; margin: auto; background-color: #fafafa; border-radius: 3px; }
 .login-box{ width: 350px; height: 450px; margin: auto; background-color: #fafafa; border-radius: 3px; }
 .login-box img, .signup-box img{ width: 65px; margin-top: -30px;}
-.entry-logo{ text-align: center; padding: 20px;}
+.entry-logo{ text-align: center; padding-top: 50px;}
 .entry-logo img{ width: 4rem;}
 h4{ text-align: center; letter-spacing: 1px; }
 .login-box form, .signup-box form{ width: 300px; margin-left: 20px; }
