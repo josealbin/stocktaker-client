@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './Inventory.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSort, faMagnifyingGlass, faArrowUpFromBracket, faArrowRotateRight, faArrowUpRightFromSquare, faArrowRotateRight } from '@fortawesome/free-solid-svg-icons'
+import { faSort, faMagnifyingGlass, faArrowUpFromBracket, faArrowRotateRight, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import AddProduct from '../AddProduct/AddProduct'
 import * as XLSX from 'xlsx'
