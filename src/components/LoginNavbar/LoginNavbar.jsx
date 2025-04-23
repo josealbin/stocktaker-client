@@ -14,7 +14,7 @@ function LoginNavbar() {
                     <Link to="/" className="logo-header">StockTaker.</Link>
                 </div>
                 <nav className='user_block'>
-                    <button><Link to="/admin-login"><FontAwesomeIcon icon={faGear} className='tools-icon' /></Link></button> 
+                    <p><button><Link to="/admin-login"><FontAwesomeIcon icon={faGear} className='tools-icon' />settings |</Link></button></p>
                     <button><Link to="/information"><FontAwesomeIcon icon={faBell} className='tools-icon' /></Link></button>
                     <button><Link to="/information"><FontAwesomeIcon icon={faCircleInfo} className='tools-icon' /></Link></button>
                 </nav>
