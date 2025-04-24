@@ -20,7 +20,7 @@ function Navbar({ user, setUser }) {
                     <Link to="/inventory" className="logo-header">StockTaker.</Link>
                 </div>
                 <nav className='user_block'>
-                    <p><FontAwesomeIcon icon={faUserCircle} className='icon' />{user}</p>  
+                    <p><FontAwesomeIcon icon={faUserCircle} className='icon' />{user} |</p>  
                     <Link to="/"><button onClick={handleLogout}>Logout<FontAwesomeIcon icon={faPowerOff} className='log-icon' /></button></Link>
                 </nav>
             </div>
