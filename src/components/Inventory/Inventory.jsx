@@ -136,7 +136,7 @@ function Inventory() {
     }
 
 
-    const options = [{ label: '- Select -', value: 1 }, { label: 'Savoury', value: 2 }, { label: 'Vegan', value: 3 }, { label: 'Ind Tarts', value: 4 }, { label: 'Ind Slices', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Sweet', value: 7 }]
+    const options = [{ label: '- Select -', value: 1 }, { label: 'Whole Cakes', value: 2 }, { label: 'Individual Tarts', value: 3 }, { label: 'Individual Slices', value: 4 }, { label: 'Banana Breads', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Cookies', value: 7 }, { label: 'MATER', value: 8 }, { label: 'Frozen', value: 9 }, { label: 'Gluten Free', value: 10 }, { label: 'New Product', value: 11 }, { label: 'Promotion', value: 12 }]
 
 
     const sortCol = (col) => {
