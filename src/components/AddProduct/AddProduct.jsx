@@ -11,6 +11,8 @@ function AddProduct() {
   const [newCategory, setNewCategory] = useState('')
   const [newStock, setNewStock] = useState('')
   const [newOrder, setNewOrder] = useState('')
+  const [newPortions, setNewPortions] = useState('')
+  const [newPrice, setNewPrice] = useState('')
   //const [newFile, setNewFile] = useState()
 
   useEffect(() => {
@@ -43,7 +45,9 @@ function AddProduct() {
       category: newCategory,
       stock: Number(newStock),
       order: Number(newOrder),
-      difference: Number(newStock) - Number(newOrder)
+      difference: Number(newStock) - Number(newOrder),
+      portions: newPortions,
+      price: newPrice
     }
     //formData.append('productData', JSON.stringify(addedData));
 
@@ -68,6 +72,8 @@ function AddProduct() {
     setNewCategory('');
     setNewStock('');
     setNewOrder('');
+    setNewPortions('');
+    setNewPrice('');
   }
 
   const options = [{ label: '- Select -', value: 1 }, { label: 'Whole Cakes', value: 2 }, { label: 'Individual Tarts', value: 3 }, { label: 'Individual Slices', value: 4 }, { label: 'Banana Breads', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Cookies', value: 7 }, { label: 'MATER', value: 8 }, { label: 'Frozen', value: 9 }, { label: 'Gluten Free', value: 10 }, { label: 'New Product', value: 11 }, { label: 'Promotion', value: 12 }]
@@ -76,23 +82,31 @@ function AddProduct() {
     <div className="add-container">
       <form onSubmit={handleAdd}>
         <div className="form-field">
-          <div className="input-field">
+          <div id='sku' className="input-field">
             <label htmlFor="pid">SKU:</label>
             <input type="text" value={newID} placeholder="SKU" required onChange={e => setNewID(e.target.value)} /><br />
           </div>
-          <div className="input-field">
+          <div id='des' className="input-field">
             <label htmlFor="pname">Name:</label>
             <input type="text" value={newName} placeholder="Description" required onChange={e => setNewName(e.target.value)} /><br />
           </div>
-          <div className="select-field">
+          <div id='portions' className="input-field">
+            <label htmlFor="pname">Portions:</label>
+            <input type="text" value={newPortions} placeholder="Portions" required onChange={e => setNewPortions(e.target.value)} /><br />
+          </div>
+          <div id='select' className="select-field">
             <label htmlFor="pcategory">Category:</label>
             <select value={newCategory} onChange={e => setNewCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select><br />
           </div>
-          <div className="input-field">
+          <div id='price' className="input-field">
+            <label htmlFor="pname">Price:</label>
+            <input type="text" value={newPrice} placeholder="Price $" required onChange={e => setNewPrice(e.target.value)} /><br />
+          </div>
+          <div id='qin' className="input-field">
             <label htmlFor="pstockin">Quantity In:</label>
             <input type="text" value={newStock} placeholder="Qty In" onChange={e => setNewStock(e.target.value)} /><br />
           </div>
-          <div className="input-field">
+          <div id='qout' className="input-field">
             <label htmlFor="pstockout">Quantity Out:</label>
             <input type="text" value={newOrder} placeholder="Qty Out" onChange={e => setNewOrder(e.target.value)} /><br />
           </div>
