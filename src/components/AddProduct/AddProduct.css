@@ -20,7 +20,7 @@ body{ display: flex;}
 .form-field .select-field{ display: flex; margin: 1rem; flex-direction: column; width: calc(100% / 5 - 15px); height: 5rem;}
 .input-field label, .select-field label, .upload-field label{ font-size: 14px; font-weight: 500; letter-spacing: 1px; color: #4b6284; margin-left: 2px;}
 .form-field label{ user-select: none;}
-.input-field input{ outline: none; background:#fafafa; font-size: 14px; font-weight: 500; color: #888888; height: 30px; margin: 8px 0; padding: 0 15px; border: 2px solid #eaeaea; transition: 0.5s; }
+.input-field input{ outline: none; background:#fafafa; font-size: 14px; font-weight: 500; color: #888888; height: 30px; margin: 8px 0; padding: 0 15px; border: 2px solid #eaeaea; transition: 0.5s; border-left: 2px solid #4b6284; }
 .select-field select{ outline: none; font-size: 14px; font-weight: 500; color: #888888; height: 30px; margin: 8px 0; padding: 0 15px; border: 2px solid #eaeaea; transition: 0.5s; }
 .upload-field input{ outline: none; background:#fafafa; font-weight: 500; color: #888888; border-radius: 20px; width: 175px; margin: 10px 0; cursor: pointer;}
 .input-field input:focus, .select-field select:focus{ border: 2px solid #344a72; }
