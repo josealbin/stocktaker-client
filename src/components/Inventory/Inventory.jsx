@@ -16,7 +16,7 @@ function Inventory() {
     const [category, setCategory] = useState('')
     const [stock, setStock] = useState('')
     const [order, setOrder] = useState('')
-    const [portion, setPortion] = useState('')
+    const [portions, setPortions] = useState('')
     const [price, setPrice] = useState('')
     const [editId, setEditId] = useState('')
     const [sortorder, setSortorder] = useState('ASC')
@@ -78,7 +78,7 @@ function Inventory() {
                 //setStock(res.data.stock)
                 setStock(res.data.difference);
                 setOrder(res.data.order)
-                setPortion(res.data.portion)
+                setPortions(res.data.portions)
                 setPrice(res.data.price)
                 setEditId(id)
             })
@@ -94,7 +94,7 @@ function Inventory() {
             stock: stock,
             order: order,
             difference: difference,
-            portion: portion,
+            portions: portions,
             price: price
         }
         axios.put(`https://api.stocktaker.net/updateProduct/${editId}`, updatedData, {
@@ -107,7 +107,7 @@ function Inventory() {
                 setCategory('');
                 setStock('');
                 setOrder('');
-                setPortion('');
+                setPortions('');
                 setPrice('');
                 setEditId(null)
             })
@@ -119,7 +119,7 @@ function Inventory() {
         setCategory('');
         setStock('');
         setOrder('');
-        setPortion('');
+        setPortions('');
         setPrice('');
         setEditId(null);
     }
@@ -307,7 +307,7 @@ function Inventory() {
                                             <td data-label="Date">{product.date}</td>
                                             <td data-label="Product ID">{product.id}</td>
                                             <td data-label="Product Name"><input type="text" value={prodname} onChange={e => setProdname(e.target.value)} /></td>
-                                            <td data-label="Portion"><input type="text" value={portion} onChange={e => setPortion(e.target.value)} /></td>
+                                            <td data-label="Portion"><input type="text" value={portions} onChange={e => setPortions(e.target.value)} /></td>
                                             <td data-label="Category"><select onChange={e => setCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select></td>
                                             <td data-label="Price"><input type="text" value={price} onChange={e => setPrice(e.target.value)} /></td>
                                             <td data-label="Qty_In"><input type="text" value={stock} onChange={e => setStock(e.target.value)} onBlur={calculateStock} /></td>
@@ -325,7 +325,7 @@ function Inventory() {
                                             <td data-label="Date">{product.date}</td>
                                             <td data-label="Product ID">{product.id}</td>
                                             <td data-label="Product Name">{product.name}</td>
-                                            <td data-label="Portion">{product.portion}</td>
+                                            <td data-label="Portion">{product.portions}</td>
                                             <td data-label="Category">{product.category}</td>
                                             <td data-label="Price">{product.price}</td>
                                             <td data-label="Qty_In">{product.stock}</td>
