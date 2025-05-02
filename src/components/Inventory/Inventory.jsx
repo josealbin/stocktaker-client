@@ -16,6 +16,8 @@ function Inventory() {
     const [category, setCategory] = useState('')
     const [stock, setStock] = useState('')
     const [order, setOrder] = useState('')
+    const [portion, setPortion] = useState('')
+    const [price, setPrice] = useState('')
     const [editId, setEditId] = useState('')
     const [sortorder, setSortorder] = useState('ASC')
     const [fileData, setFileData] = useState(null)
@@ -76,6 +78,8 @@ function Inventory() {
                 //setStock(res.data.stock)
                 setStock(res.data.difference);
                 setOrder(res.data.order)
+                setPortion(res.data.portion)
+                setPrice(res.data.price)
                 setEditId(id)
             })
             .catch(err => { console.log(err); })
@@ -89,7 +93,9 @@ function Inventory() {
             category: category,
             stock: stock,
             order: order,
-            difference: difference
+            difference: difference,
+            portion: portion,
+            price: price
         }
         axios.put(`https://api.stocktaker.net/updateProduct/${editId}`, updatedData, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -101,6 +107,8 @@ function Inventory() {
                 setCategory('');
                 setStock('');
                 setOrder('');
+                setPortion('');
+                setPrice('');
                 setEditId(null)
             })
             .catch(err => console.log(err));
@@ -111,6 +119,8 @@ function Inventory() {
         setCategory('');
         setStock('');
         setOrder('');
+        setPortion('');
+        setPrice('');
         setEditId(null);
     }
 
@@ -278,7 +288,9 @@ function Inventory() {
                                 <th>Updated_On</th>
                                 <th>SKU:</th>
                                 <th onClick={() => sortCol('name')}>Product_Description <FontAwesomeIcon icon={faSort} className='icon' /></th>
+                                <th>Portions</th>
                                 <th onClick={() => sortCol('category')}>Category <FontAwesomeIcon icon={faSort} className='icon' /></th>
+                                <th>Price $</th>
                                 <th>Qty_In</th>
                                 <th>Qty_Out</th>
                                 <th>Stock</th>
@@ -295,7 +307,9 @@ function Inventory() {
                                             <td data-label="Date">{product.date}</td>
                                             <td data-label="Product ID">{product.id}</td>
                                             <td data-label="Product Name"><input type="text" value={prodname} onChange={e => setProdname(e.target.value)} /></td>
+                                            <td data-label="Portion"><input type="text" value={portion} onChange={e => setPortion(e.target.value)} /></td>
                                             <td data-label="Category"><select onChange={e => setCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select></td>
+                                            <td data-label="Price"><input type="text" value={price} onChange={e => setPrice(e.target.value)} /></td>
                                             <td data-label="Qty_In"><input type="text" value={stock} onChange={e => setStock(e.target.value)} onBlur={calculateStock} /></td>
                                             <td data-label="Qty_Out"><input type="text" value={order} onChange={e => setOrder(e.target.value)} onBlur={calculateOrder} /></td>
                                             <td data-label="Level" className={getStatus(product.difference)}><p>{product.difference}</p></td>
@@ -311,7 +325,9 @@ function Inventory() {
                                             <td data-label="Date">{product.date}</td>
                                             <td data-label="Product ID">{product.id}</td>
                                             <td data-label="Product Name">{product.name}</td>
+                                            <td data-label="Portion">{product.portion}</td>
                                             <td data-label="Category">{product.category}</td>
+                                            <td data-label="Price">{product.price}</td>
                                             <td data-label="Qty_In">{product.stock}</td>
                                             <td data-label="Qty_Out">{product.order}</td>
                                             <td data-label="Level" className={getStatus(product.difference)}><p>{product.difference}</p></td>
