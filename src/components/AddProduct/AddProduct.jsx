@@ -103,11 +103,11 @@ function AddProduct() {
             <input type="text" value={newPrice} placeholder="Price $" required onChange={e => setNewPrice(e.target.value)} /><br />
           </div>
           <div id='qin' className="input-field">
-            <label htmlFor="pstockin">Quantity In:</label>
+            <label htmlFor="pstockin">Qty In:</label>
             <input type="text" value={newStock} placeholder="Qty In" onChange={e => setNewStock(e.target.value)} /><br />
           </div>
           <div id='qout' className="input-field">
-            <label htmlFor="pstockout">Quantity Out:</label>
+            <label htmlFor="pstockout">Qty Out:</label>
             <input type="text" value={newOrder} placeholder="Qty Out" onChange={e => setNewOrder(e.target.value)} /><br />
           </div>
           <div className="upload-field">
