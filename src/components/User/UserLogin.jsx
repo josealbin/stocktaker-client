@@ -62,7 +62,7 @@ function UserLogin({ setUser }) {
                     {loginError && <p className="login-error"><FontAwesomeIcon icon={faTriangleExclamation} className='icon' /> {loginError}</p>}
                 </form>
             </div>
-            <p className="login-path">New User? <Link to="/signup">Register here.</Link></p>
+            <p className="login-path">New User? <Link to="/login">Register here.</Link></p>
         </div>
     )
 }
