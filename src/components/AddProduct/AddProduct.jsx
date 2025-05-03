@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../AddProduct/AddProduct.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEraser, faFileCirclePlus } from '@fortawesome/free-solid-svg-icons'
+import { faEraser, faFileCirclePlus,faSquarePlus } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 function AddProduct() {
@@ -115,7 +115,7 @@ function AddProduct() {
             <input type="file" accept='application/pdf' /* onChange={(e) => setNewFile(e.target.files[0])}  */ /><br />
           </div>
           <div className="control-field">
-            <button className="add-btn"><FontAwesomeIcon icon={faFileCirclePlus} className='icon' /> Add</button>
+            <button className="add-btn"><FontAwesomeIcon icon={faSquarePlus} className='icon' /> Add</button>
             <button className="clear-btn" onClick={handleCancel}><FontAwesomeIcon icon={faEraser} className='icon' /> Clear</button>
           </div>
         </div>
