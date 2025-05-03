@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../AddProduct/AddProduct.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEraser, faFileCirclePlus,faSquarePlus } from '@fortawesome/free-solid-svg-icons'
+import { faEraser, faSquarePlus } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 function AddProduct() {
