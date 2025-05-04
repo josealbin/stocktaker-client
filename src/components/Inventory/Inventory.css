@@ -69,7 +69,7 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
 .prod_table tbody td:nth-child(1){ padding-left: 0.5rem; color: #6196CB; }
 .prod_table tbody td:nth-child(2){ padding-left: 0.5rem; color: #64805d; font-size: .8rem;}
 .prod_table tbody td:nth-child(3), .prod_table tbody td:nth-child(4){ padding-left: 0.5rem;}
-.prod_table tbody td:nth-child(7), .prod_table tbody td:nth-child(8), .prod_table tbody td:nth-child(9), .prod_table tbody td:nth-child(10), .prod_table tbody td:nth-child(11), .prod_table tbody td:nth-child(12), .prod_table th:nth-child(7), .prod_table th:nth-child(8), .prod_table th:nth-child(9), .prod_table th:nth-child(10), .prod_table th:nth-child(11), .prod_table th:nth-child(12){ text-align: center;}
+.prod_table tbody td:nth-child(4), .prod_table tbody td:nth-child(7), .prod_table tbody td:nth-child(8), .prod_table tbody td:nth-child(9), .prod_table tbody td:nth-child(10), .prod_table tbody td:nth-child(11), .prod_table tbody td:nth-child(12), .prod_table th:nth-child(7), .prod_table th:nth-child(8), .prod_table th:nth-child(9), .prod_table th:nth-child(10), .prod_table th:nth-child(11), .prod_table th:nth-child(12){ text-align: center;}
 .prod_table tbody td:nth-child(5), .prod_table tbody td:nth-child(6){ padding-left: 0.5rem; }
 .prod_table tbody td:nth-child(7), .prod_table tbody td:nth-child(8), .prod_table tbody td:nth-child(9) {letter-spacing: 2px; font-weight:600; }
 .prod_table tbody td:nth-child(8){ letter-spacing: .5px; font-weight:600; }
