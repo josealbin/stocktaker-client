@@ -76,7 +76,7 @@ function AddProduct() {
     setNewPrice('');
   }
 
-  const options = [{ label: '- Select -', value: 1 }, { label: 'Whole Cakes', value: 2 }, { label: 'Individual Tarts', value: 3 }, { label: 'Individual Slices', value: 4 }, { label: 'Banana Breads', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Cookies', value: 7 }, { label: 'MATER', value: 8 }, { label: 'Frozen', value: 9 }, { label: 'Gluten Free', value: 10 }, { label: 'New Product', value: 11 }, { label: 'Cakes/Desserts/Ind', value: 12 }, { label: 'Promotion', value: 13 }]
+  const options = [{ label: '- Select -', value: 1 }, { label: '28cm Cakes', value: 2 }, { label: 'Individual Tarts', value: 3 }, { label: 'Individual Slices', value: 4 }, { label: 'Banana Breads', value: 5 }, { label: 'Muffins', value: 6 }, { label: 'Cookies', value: 7 }, { label: '28cm Pies', value: 2 }, { label: 'MATER', value: 8 }, { label: 'Gluten Free', value: 10 }, { label: 'New Product', value: 11 }, { label: 'Cakes/Desserts', value: 12 }, { label: 'Promotion', value: 13 }]
 
   return (
     <div className="add-container">
