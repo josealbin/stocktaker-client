@@ -196,9 +196,9 @@ function Inventory() {
 
             // Parse the file data and create an object with IDs as keys and updated values
             fileData.forEach(row => {
-                const id = row.ProductSKU; // Assuming ID is a property of each row
-                const order = parseFloat(row.Quantity).toFixed(2);
-                updatedColumns[id] = { order: parseFloat(order) };
+                const id = row.id; // Assuming ID is a property of each row
+                const order = Number(row.order);
+                updatedColumns[id] = { order };
             });
 
             // Update the specific columns (stock and order) in the table data based on IDs
