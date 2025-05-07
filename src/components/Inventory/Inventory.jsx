@@ -196,8 +196,8 @@ function Inventory() {
 
             // Parse the file data and create an object with IDs as keys and updated values
             fileData.forEach(row => {
-                const id = row.id; // Assuming ID is a property of each row
-                const order = Number(row.order);
+                const id = row.ProductSKU; // Assuming ID is a property of each row
+                const order = Number(row.Quantity);
                 updatedColumns[id] = { order };
             });
 
