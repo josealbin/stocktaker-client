@@ -13,11 +13,11 @@ body{ display: flex;}
 .add-container{ position: absolute; top: 14.5rem; width: 100%;}
 .add-container form{ position: relative; min-height: 50px;}
 .add-container .form-field{ display: flex; align-items: center; justify-content: space-between; height: 5rem;}
-.add-container .control-field{ display: flex;}
+.add-container .control-field{ display: flex; margin-bottom: 1.2rem;}
 
 .form-field .input-field{ display: flex; margin: 1rem; flex-direction: column; width: calc(100% / 5 - 15px);}
 .form-field .upload-field{ display: flex; margin: 1rem; flex-direction: column; }
-.form-field .select-field{ display: flex; margin: 1rem; flex-direction: column; width: calc(100% / 5 - 15px); height: 5rem;}
+.form-field .select-field{ display: flex; margin: 1rem; flex-direction: column; width: calc(100% / 5 - 15px); height: 4rem;}
 /* .input-field label, .select-field label, .upload-field label{ font-size: 14px; font-weight: 500; letter-spacing: 1px; color: #4b6284; margin-left: 2px;} */
 .input-field label, .select-field label, .upload-field label{ display: none; }
 .form-field label{ user-select: none;}
