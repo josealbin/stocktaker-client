@@ -196,8 +196,8 @@ function Inventory() {
 
             // Parse the file data and create an object with IDs as keys and updated values
             fileData.forEach(row => {
-                const id = row.id; // Assuming ID is a property of each row
-                const order = Number(row.order);
+                const id = row.ProductSKU; // Assuming ID is a property of each row
+                const order = Number(row.Quantity);
                 updatedColumns[id] = { order };
             });
 
@@ -268,7 +268,7 @@ function Inventory() {
                 <input type="file" className='upload_box' ref={fileInputRef} onChange={handleFileUpload} required />
                 <button className="upload-btn" onClick={updateTableWithFileData}><FontAwesomeIcon icon={faArrowUpFromBracket} className='icon' />Upload</button>
                 <button className="refresh-btn" onClick={handleOrderReset} > <FontAwesomeIcon icon={faPenToSquare} className='icon' />Reset</button>
-                <p>*accepted file formats .xlsx .csv</p>
+                <p>*accepted file formats .xlsx</p>
             </div>
 
             <div className="search_box">
