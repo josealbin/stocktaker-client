@@ -170,74 +170,76 @@ function Inventory() {
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
         const reader = new FileReader();
-    
+
         reader.onload = (e) => {
             const data = new Uint8Array(e.target.result);
             const workbook = XLSX.read(data, { type: 'array' });
             const sheetName = workbook.SheetNames[0];
             const sheet = workbook.Sheets[sheetName];
-    
-            const jsonData = XLSX.utils.sheet_to_json(sheet); // Use keys from header row
-    
-            // Assuming headers are 'ProductSKU' and 'Quantity'
-            const updatedData = jsonData.map(row => ({
-                id: row.ProductSKU,
-                order: parseFloat(row.Quantity)
+
+            // Assuming your Excel sheet has headers like 'id', 'stock', 'order'
+            const updatedData = XLSX.utils.sheet_to_json(sheet, { header: 1 }).slice(1).map(row => ({
+                ProductSKU: row[2], // Adjust index if ID column is different
+                Quantity: row[3], // Adjust index if order column is different
             }));
-    
+
             setFileData(updatedData);
         };
-    
         reader.readAsArrayBuffer(file);
     };
-    
+
+    // Function to update table data with file data and push changes to the database
     const updateTableWithFileData = () => {
         if (fileData) {
             setSpinner(true);
-    
-            const updatedOrderById = {};
-    
+            const updatedColumns = {};
+
+            // Parse the file data and create an object with IDs as keys and updated values
             fileData.forEach(row => {
-                const id = row.id;
-                const order = row.order;
+                const id = row.ProductSKU; // Assuming ID is a property of each row
+                const order = parseFloat(row.Quantity).toFixed(2);;
                 if (id && !isNaN(order)) {
-                    updatedOrderById[id] = { order };
+                    updatedColumns[id] = { order: parseFloat(order) }; // Convert back to number if needed
                 }
+                //updatedColumns[id] = { order };
             });
-    
+
+            // Update the specific columns (stock and order) in the table data based on IDs
             const updatedTableData = data.map(row => {
-                const updated = updatedOrderById[row.id];
-                if (updated) {
-                    const difference = row.stock - updated.order;
+                const updatedValues = updatedColumns[row.id];
+                if (updatedValues) {
+                    const difference = row.stock - updatedValues.order;
                     return {
                         ...row,
-                        order: updated.order,
-                        difference
+                        order: updatedValues.order,
+                        difference: difference
                     };
                 }
                 return row;
             });
-    
-            // Send updated data to backend
-            axios.post('https://api.stocktaker.net/updateData', { updatedTableData },
-                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
-            )
-            .then(res => {
-                setData(res.data); // Update UI without reload
-                setFileData(null);
-                setSpinner(false);
-    
-                if (fileInputRef.current) {
-                    fileInputRef.current.value = "";
-                }
-            })
-            .catch(err => {
-                console.error(err);
-                setSpinner(false);
-            });
+            // Now, send an HTTP request to update data in the database
+            setTimeout(() => {
+                axios.post('https://api.stocktaker.net/updateData', {updatedTableData}, 
+                {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
+                    .then(res => {
+                        setData(res.data);
+                        setFileData(null);
+                        window.location.reload();
+                        setSpinner(false);
+                        
+                        if (fileInputRef.current) {            // **Reset file input field after upload completes**
+                            fileInputRef.current.value = "";
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err)
+                        setSpinner(false);
+                    }); // Handle any errors
+
+            }, 3000); // 3 seconds delay
         }
     };
-    
+
     const handleOrderReset = () => {
         setSpinner(true);
         axios.put("https://api.stocktaker.net/resetOrders", {}, {
