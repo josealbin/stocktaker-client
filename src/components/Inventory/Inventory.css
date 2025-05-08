@@ -54,7 +54,7 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
 .prod_table thead tr th{ font-size: 0.9rem; padding: 0.5rem; vertical-align: top; border-right: 1px solid #eaeaea;  font-weight: 600; user-select: none;}
 .prod_table tbody tr td{ font-size: 0.9rem; color: #4e4e4e; font-weight: normal; text-align: left; border: 1px solid #eaeaea; user-select: none;}
 .prod_table thead tr th:last-child{ border: none;}
-.prod_table thead th:nth-child(3), .prod_table thead th:nth-child(4), .prod_table thead th:nth-child(8){ cursor: pointer;}
+.prod_table thead th:nth-child(3), .prod_table thead th:nth-child(5), .prod_table thead th:nth-child(10){ cursor: pointer;}
 .prod_table thead th:nth-child(1){ width: 11rem;}
 .prod_table thead th:nth-child(3){ width: 32rem;}
 .prod_table thead th:nth-child(4), .prod_table thead th:nth-child(7), .prod_table thead th:nth-child(8), .prod_table thead th:nth-child(9) { width: 4rem;}
