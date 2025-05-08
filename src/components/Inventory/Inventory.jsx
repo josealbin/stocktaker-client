@@ -327,7 +327,7 @@ function Inventory() {
                                         <tr key={index}>
                                             <td data-label="Date">{product.date}</td>
                                             <td data-label="Product ID">{product.id}</td>
-                                            <td data-label="Product Name">{product.name}</td>
+                                            <td data-label="Product Name" className='des-cell'>{product.name}</td>
                                             <td data-label="Portion">{product.portions}</td>
                                             <td data-label="Category">{product.category}</td>
                                             <td data-label="Price">{product.price}</td>
