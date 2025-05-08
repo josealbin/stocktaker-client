@@ -179,8 +179,8 @@ function Inventory() {
 
             // Assuming your Excel sheet has headers like 'id', 'stock', 'order'
             const updatedData = XLSX.utils.sheet_to_json(sheet, { header: 1 }).slice(1).map(row => ({
-                id: row[0], // Adjust index if ID column is different
-                order: row[2], // Adjust index if order column is different
+                id: row[2], // Adjust index if ID column is different
+                order: row[3], // Adjust index if order column is different
             }));
 
             setFileData(updatedData);
@@ -199,7 +199,7 @@ function Inventory() {
                 const id = row.ProductSKU; // Assuming ID is a property of each row
                 const order = parseFloat(row.Quantity).toFixed(2);;
                 if (id && !isNaN(order)) {
-                    updatedOrderById[id] = { order: parseFloat(order) }; // Convert back to number if needed
+                    updatedColumns[id] = { order: parseFloat(order) }; // Convert back to number if needed
                 }
                 //updatedColumns[id] = { order };
             });
