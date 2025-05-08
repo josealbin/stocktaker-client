@@ -74,7 +74,7 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
 .prod_table tbody td:nth-child(7), .prod_table tbody td:nth-child(8), .prod_table tbody td:nth-child(9) {letter-spacing: 2px; font-weight:600; }
 .prod_table tbody td:nth-child(8){ letter-spacing: .5px; font-weight:600; }
 .prod_table tbody td:nth-child(10){ font-weight: 600;}
-.prod_table tbody td:nth-child(3) input[type="text"]{ width: 25rem; font-size: 0.8rem; color: #4e4e4e; font-weight: normal; border: none; border-bottom: 2px solid #6196CB;}
+.prod_table tbody td:nth-child(3) input[type="text"]{ width: 30rem; font-size: 0.8rem; color: #4e4e4e; font-weight: normal; border: none; border-bottom: 2px solid #6196CB;}
 .prod_table tbody td:nth-child(4) input[type="text"], .prod_table tbody td:nth-child(6) input[type="text"], .prod_table tbody td:nth-child(7) input[type="text"], .prod_table tbody td:nth-child(8) input[type="text"]{ width: 3rem; font-size: 0.8rem; color: #4e4e4e; font-weight: 600; letter-spacing: 2px; border: none; border-bottom: 2px solid #6196CB;}
 
 .des-cell { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
