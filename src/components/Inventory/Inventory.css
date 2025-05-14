@@ -106,5 +106,6 @@ body{ display: flex; align-items: center; background: #eaeaea; min-height: 100vh
     .prod_table tbody tr td{ text-align: right; position: relative;}
     .prod_table td::before{ content: attr(data-label); position: absolute; left: 0; width: 50%; text-align: left; padding-left: 1.2rem;}
     .prod_table tbody td:nth-child(3) input[type="text"]{ width: 10rem;}
+    .des-cell { max-width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 }
 /* prod_table Ends*/
