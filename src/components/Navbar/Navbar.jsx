@@ -16,7 +16,7 @@ function Navbar({ user, setUser }) {
         <div className='header'>
             <div className="container">
                 <div className='logo_block'>
-                    <Link to="/inventory"><img src="/images/form.png" alt="" /></Link>
+                    <Link to="/inventory"><img src="/images/CEFN-Logo-white.svg" alt="" /></Link>
                     <Link to="/inventory" className="logo-header">StockTaker.</Link>
                 </div>
                 <nav className='user_block'>
