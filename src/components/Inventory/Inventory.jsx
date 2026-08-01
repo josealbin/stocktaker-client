@@ -275,7 +275,7 @@ function Inventory() {
             </div>
 
             <div className="search_box">
-                <input type="text" id="search-input" placeholder="Filter table by Product Name" ref={searchRef} onChange={(e) => setSearch(e.target.value)} />
+                <input type="text" id="search-input" placeholder="Search by Product Name" ref={searchRef} onChange={(e) => setSearch(e.target.value)} />
                 <FontAwesomeIcon icon={faMagnifyingGlass} className='icon' />
             </div>
 
