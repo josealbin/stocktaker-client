@@ -289,11 +289,11 @@ function Inventory() {
                         <thead className="table_header">
                             <tr className="item">
                                 <th>Updated_On</th>
-                                <th>SKU</th>
+                                <th>SKU:</th>
                                 <th onClick={() => sortCol('name')}>Product_Description <FontAwesomeIcon icon={faSort} className='icon' /></th>
+                                <th>Portions</th>
                                 <th onClick={() => sortCol('category')}>Category <FontAwesomeIcon icon={faSort} className='icon' /></th>
                                 <th>Price $</th>
-                                <th>Portions</th>
                                 <th>Qty_In</th>
                                 <th>Qty_Out</th>
                                 <th>Stock</th>
@@ -310,9 +310,9 @@ function Inventory() {
                                             <td data-label="Date">{product.date}</td>
                                             <td data-label="Product ID">{product.id}</td>
                                             <td data-label="Product Name"><input type="text" value={prodname} onChange={e => setProdname(e.target.value)} /></td>
+                                            <td data-label="Portion"><input type="text" value={portions} onChange={e => setPortions(e.target.value)} /></td>
                                             <td data-label="Category"><select onChange={e => setCategory(e.target.value)}> {options.map(option => (<option key={option.value} value={option.label}>{option.label}</option>))}</select></td>
                                             <td data-label="Price"><input type="text" value={price} onChange={e => setPrice(e.target.value)} /></td>
-                                            <td data-label="Portion"><input type="text" value={portions} onChange={e => setPortions(e.target.value)} /></td>
                                             <td data-label="Qty_In"><input type="text" value={stock} onChange={e => setStock(e.target.value)} onBlur={calculateStock} /></td>
                                             <td data-label="Qty_Out"><input type="text" value={order} onChange={e => setOrder(e.target.value)} onBlur={calculateOrder} /></td>
                                             <td data-label="Level" className={getStatus(product.difference)}><p>{product.difference}</p></td>
@@ -328,9 +328,9 @@ function Inventory() {
                                             <td data-label="Date">{product.date}</td>
                                             <td data-label="Product ID">{product.id}</td>
                                             <td data-label="Product Name" className='des-cell'>{product.name}</td>
+                                            <td data-label="Portion">{product.portions}</td>
                                             <td data-label="Category">{product.category}</td>
                                             <td data-label="Price">{product.price}</td>
-                                            <td data-label="Portion">{product.portions}</td>
                                             <td data-label="Qty_In">{product.stock}</td>
                                             <td data-label="Qty_Out">{product.order}</td>
                                             <td data-label="Level" className={getStatus(product.difference)}><p>{product.difference}</p></td>
