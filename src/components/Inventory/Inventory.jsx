@@ -291,9 +291,9 @@ function Inventory() {
                                 <th>Updated_On</th>
                                 <th>SKU</th>
                                 <th onClick={() => sortCol('name')}>Product_Description <FontAwesomeIcon icon={faSort} className='icon' /></th>
-                                <th>Portions</th>
                                 <th onClick={() => sortCol('category')}>Category <FontAwesomeIcon icon={faSort} className='icon' /></th>
                                 <th>Price $</th>
+                                <th>Portions</th>
                                 <th>Qty_In</th>
                                 <th>Qty_Out</th>
                                 <th>Stock</th>
